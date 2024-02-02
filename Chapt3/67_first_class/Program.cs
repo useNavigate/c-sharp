@@ -33,6 +33,18 @@ and default access modifires set to private
  */
 
 
+/*
+ ENCAPSULATION:
+ - building data with methods that operate on it in the same class.
+ - Encapsulation may enable data hiding 
+
+ DATA HIDING:
+ - Making fields private instead of public.
+ 
+ 
+ 
+ */
+
 
 var rectangle1 = new Rectangle(5,10);
 
@@ -50,7 +62,7 @@ Console.ReadKey();
 
 class Rectangle
 {
-    
+
     public int Width;
     public int Height;
 
@@ -62,11 +74,33 @@ class Rectangle
 
     public Rectangle(int width, int height)
     {
-        Width = width;
-        Height = height;
-    
+        Width = GetLengthOrDefault(width, nameof(Width));
+        Height = GetLengthOrDefault(height, nameof(Height));
+
     }
+
+    private int GetLengthOrDefault(int length, string name)
+    {
+        int defaultValueIfNonPositive = 1;
+
+        if (length <= 0)
+        {
+            Console.WriteLine($"{name} must be a positive number");
+            return  defaultValueIfNonPositive;
+        }
+        return length;
+    }
+
+    //expression bodied method === arrow func
+    public int CalculateCircumference() =>  2 * Width + 2 * Height;
+    
+
+    public int CalculateArea() =>  Width * Height;
+    
 }
+
+
+
 
 
 /*
