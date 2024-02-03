@@ -47,17 +47,21 @@ and default access modifires set to private
 
 
 var rectangle1 = new Rectangle(5,10);
-Console.WriteLine(Rectangle.DescribeGenerally());
-Console.WriteLine("Width is "+ rectangle1.Width);
-Console.WriteLine("----------Width is " + rectangle1.Width);
-Console.WriteLine("Height is " + rectangle1.GetHeight());
-Console.WriteLine("Width is " + rectangle1.CalculateArea());
-Console.WriteLine("Height is " + rectangle1.CalculateCircumference());
+var rectangle2 = new Rectangle(50, 100);
+
+Console.WriteLine("Count of recs " + Rectangle.CountOfInstances);
+
+//Console.WriteLine(Rectangle.DescribeGenerally());
+//Console.WriteLine("Width is "+ rectangle1.Width);
+//Console.WriteLine("----------Width is " + rectangle1.Width);
+//Console.WriteLine("Height is " + rectangle1.GetHeight());
+//Console.WriteLine("Width is " + rectangle1.CalculateArea());
+//Console.WriteLine("Height is " + rectangle1.CalculateCircumference());
 
 
-Console.WriteLine($"1 + 2 is {Calculator.Add(1, 2)}");
-Console.WriteLine($"1 - 2 is {Calculator.Subtract(1, 2)}");
-Console.WriteLine($"1 * 2 is {Calculator.Multiply(1, 2)}");
+//Console.WriteLine($"1 + 2 is {Calculator.Add(1, 2)}");
+//Console.WriteLine($"1 - 2 is {Calculator.Subtract(1, 2)}");
+//Console.WriteLine($"1 * 2 is {Calculator.Multiply(1, 2)}");
 
 
 Console.ReadKey();
@@ -97,10 +101,14 @@ class Rectangle
      2. no boid or any type name 
      */
 
+    //static properties
+    public static int CountOfInstances { get; private set; }
+    private static DateTime _firstUsed  = DateTime.Now;
     public Rectangle(int width, int height)
     {
         Width = GetLengthOrDefault(width, nameof(Width));
         _height = GetLengthOrDefault(height, nameof(_height));
+        ++CountOfInstances; 
     }
     
     
