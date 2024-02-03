@@ -64,6 +64,7 @@ Console.WriteLine("Count of recs " + Rectangle.CountOfInstances);
 //Console.WriteLine($"1 * 2 is {Calculator.Multiply(1, 2)}");
 
 
+
 Console.ReadKey();
 
 /*
