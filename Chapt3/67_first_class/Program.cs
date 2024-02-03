@@ -49,13 +49,10 @@ and default access modifires set to private
 var rectangle1 = new Rectangle(5,10);
 
 Console.WriteLine("Width is "+ rectangle1.Width);
-Console.WriteLine("Height is " + rectangle1.Height);
-
-
-var rectangle2 = new Rectangle(7, 14);
-
-Console.WriteLine("Width is " + rectangle2.Width);
-Console.WriteLine("Height is " + rectangle2.Height);
+Console.WriteLine("----------Width is " + rectangle1.Width);
+Console.WriteLine("Height is " + rectangle1.GetHeight());
+Console.WriteLine("Width is " + rectangle1.CalculateArea());
+Console.WriteLine("Height is " + rectangle1.CalculateCircumference());
 
 
 Console.ReadKey();
@@ -63,9 +60,9 @@ Console.ReadKey();
 class Rectangle
 {
 
-    public int Width;
-    public int Height;
+    //readonly make it immutable
 
+ 
     //adding contructor
     /*
      1. it must be named the same as the type it belongs to 
@@ -74,32 +71,121 @@ class Rectangle
 
     public Rectangle(int width, int height)
     {
-        Width = GetLengthOrDefault(width, nameof(Width));
-        Height = GetLengthOrDefault(height, nameof(Height));
 
+        Width = GetLengthOrDefault(width, nameof(Width));
+        _height = GetLengthOrDefault(height, nameof(_height));
+
+    }
+    
+    
+    /*
+     * way 1. 
+     👇 the name of the property should always start with a captial letter no matter if itis private or not.
+     name should be noun
+     old way to do make property
+     ~code~
+
+    public int Width
+    {
+        get { return _width; }
+        private set { _width = value; }
+    }
+
+
+    //👇backing field
+    public int _width;
+
+    * way 2
+     
+    private int _width;
+     public int Width
+     {
+        get => _width;
+        set => _width = value;
+     }
+    */
+
+
+
+    //new way to make property ; you do not need backing field for mondern way 
+    public int Width { get; private set; }
+
+   
+   
+    private int _height;
+    public int GetHeight() => _height;
+
+    public void setHeight(int value)
+    {
+        Width = 10;
+        if (value > 0)
+        {
+            _height = value;
+        }
     }
 
     private int GetLengthOrDefault(int length, string name)
     {
-        int defaultValueIfNonPositive = 1;
+        const int DefaultValueIfNonPositive = 1;
 
         if (length <= 0)
         {
             Console.WriteLine($"{name} must be a positive number");
-            return  defaultValueIfNonPositive;
+            return  DefaultValueIfNonPositive;
         }
         return length;
     }
 
     //expression bodied method === arrow func
-    public int CalculateCircumference() =>  2 * Width + 2 * Height;
-    
-
-    public int CalculateArea() =>  Width * Height;
-    
+    public int CalculateCircumference() =>  2 * Width + 2 * _height;
+    public int CalculateArea() =>  Width * _height;    
 }
 
 
+
+
+/*
+ 
+
+Properties of the Order class
+The goal of this exercise is to finish the implementation of the Order class. 
+It represents a simple Order made in a store, and it needs to have two properties:
+
+- Item (string), which should not be settable at all
+
+- Date (DateTime), which should be both gettable and settable. Its setter should validate if the given value has the same year as the current year. If not, the value of the Date property should not be changed.
+
+Your job is only to add the definitions of those two properties. If needed, you can add backing fields as well
+ 
+ */
+
+public class Order
+{
+    private string _item;
+    private DateTime _date;
+
+    //getter 
+    public string Item { get { return _item; } }
+
+    public DateTime Date
+    {
+        get { return _date; }
+        set
+        {
+            if (value.Year == DateTime.Now.Year)
+            {
+                _date = value;
+            }
+
+        }
+    }
+
+    public Order(string item, DateTime date)
+    {
+        _item = item;
+        _date = date;
+    }
+}
 
 
 

@@ -12,8 +12,8 @@ namespace _70_restrictions_on_code_outside_classes_top_level_statements
 
 
     //this will not work. 
-    void DummyMethod()
-    {
-        Console.WriteLine("nothing to see");
-    }
+    //void DummyMethod()
+    //{
+    //    Console.WriteLine("nothing to see");
+    //}
 }

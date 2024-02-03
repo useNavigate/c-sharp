@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapt3", "Chapt3\Chapt3.csproj", "{5A95674D-5368-4B52-953F-92F3490A6ADD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapt3", "Chapt3\Chapt3.csproj", "{5A95674D-5368-4B52-953F-92F3490A6ADD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "65_understanding_oop_with_the_DateTime_type", "65_understanding_oop_with_the_DateTime_type\65_understanding_oop_with_the_DateTime_type.csproj", "{22D9734D-B777-4F10-BC13-19583D190918}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "65_understanding_oop_with_the_DateTime_type", "65_understanding_oop_with_the_DateTime_type\65_understanding_oop_with_the_DateTime_type.csproj", "{22D9734D-B777-4F10-BC13-19583D190918}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "67_first_class", "67_first_class\67_first_class.csproj", "{A40282FE-CA30-4DA1-9FC7-A4BF200FA33D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "67_first_class", "67_first_class\67_first_class.csproj", "{A40282FE-CA30-4DA1-9FC7-A4BF200FA33D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "70_restrictions-on-code-outside-classes-top-level-statements", "70_restrictions-on-code-outside-classes-top-level-statements\70_restrictions-on-code-outside-classes-top-level-statements.csproj", "{9A06A86F-E134-4629-8ACA-390F3C5608DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "70_restrictions-on-code-outside-classes-top-level-statements", "70_restrictions-on-code-outside-classes-top-level-statements\70_restrictions-on-code-outside-classes-top-level-statements.csproj", "{9A06A86F-E134-4629-8ACA-390F3C5608DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "73_Methods_Overloading", "73_Methods_Overloading\73_Methods_Overloading.csproj", "{340BE4E8-8E35-4E95-B651-A37D2BB5DA51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "73_Methods_Overloading", "73_Methods_Overloading\73_Methods_Overloading.csproj", "{340BE4E8-8E35-4E95-B651-A37D2BB5DA51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "class_boilder_template", "class_boilder_template\class_boilder_template.csproj", "{7547325D-EFA9-4EEB-999E-5F84226AEE22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{340BE4E8-8E35-4E95-B651-A37D2BB5DA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{340BE4E8-8E35-4E95-B651-A37D2BB5DA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{340BE4E8-8E35-4E95-B651-A37D2BB5DA51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7547325D-EFA9-4EEB-999E-5F84226AEE22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7547325D-EFA9-4EEB-999E-5F84226AEE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7547325D-EFA9-4EEB-999E-5F84226AEE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7547325D-EFA9-4EEB-999E-5F84226AEE22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
