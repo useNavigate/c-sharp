@@ -47,7 +47,7 @@ and default access modifires set to private
 
 
 var rectangle1 = new Rectangle(5,10);
-
+Console.WriteLine(Rectangle.DescribeGenerally());
 Console.WriteLine("Width is "+ rectangle1.Width);
 Console.WriteLine("----------Width is " + rectangle1.Width);
 Console.WriteLine("Height is " + rectangle1.GetHeight());
@@ -55,14 +55,42 @@ Console.WriteLine("Width is " + rectangle1.CalculateArea());
 Console.WriteLine("Height is " + rectangle1.CalculateCircumference());
 
 
+Console.WriteLine($"1 + 2 is {Calculator.Add(1, 2)}");
+Console.WriteLine($"1 - 2 is {Calculator.Subtract(1, 2)}");
+Console.WriteLine($"1 * 2 is {Calculator.Multiply(1, 2)}");
+
+
 Console.ReadKey();
 
+/*
+ static methods belong to a class as a whole, not to a specific instance. 
+
+ static methods can't use the instance data (value of fields or returned by properties)
+    
+ static classes can only contain static methods.
+
+BUT 
+
+ Non-static classes can contain static methods.
+
+ if a private method doesn't use instance data, make it static.
+ 
+ */
+static class Calculator
+{
+    /*
+     A static class cannot be instantiated; it only works as a container for methods.
+     */
+    public static int Add(int a, int b) => a + b;
+    public static int Subtract(int a, int b) => a - b;
+    public static int Multiply(int a, int b) => a * b;
+
+}
+
+//statefull
 class Rectangle
 {
-
     //readonly make it immutable
-
- 
     //adding contructor
     /*
      1. it must be named the same as the type it belongs to 
@@ -71,10 +99,8 @@ class Rectangle
 
     public Rectangle(int width, int height)
     {
-
         Width = GetLengthOrDefault(width, nameof(Width));
         _height = GetLengthOrDefault(height, nameof(_height));
-
     }
     
     
@@ -109,9 +135,6 @@ class Rectangle
 
     //new way to make property ; you do not need backing field for mondern way 
     public int Width { get; private set; }
-
-   
-   
     private int _height;
     public int GetHeight() => _height;
 
@@ -138,7 +161,20 @@ class Rectangle
 
     //expression bodied method === arrow func
     public int CalculateCircumference() =>  2 * Width + 2 * _height;
-    public int CalculateArea() =>  Width * _height;    
+    public int CalculateArea() =>  Width * _height;
+
+
+    //creating get-only property
+    public string Description => $"A rectangle with width {Width} " + $"and height {_height}";
+
+    public static string DescribeGenerally() => $"A plane figure with four straight sides and four right angles.";
+
+    public string NotUsingAnyState() => "abc";
+
+    public const int NumberOfSindes = 4;
+    // all Const fields are implicitly static.
+
+
 }
 
 

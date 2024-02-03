@@ -170,7 +170,7 @@ public class Person
 ## Object Initializer:
 
 **What Object Initializers Are:**
-- Object Initializers: A concise syntax for initializing object properties.
+- Object Initializers: A concise syntax for initializing object properties. (only works with public setter)
 - Purpose of `init` Accessor: Introduced in C# 9.0, used for properties that can only be set during object initialization.
 
 ```csharp
