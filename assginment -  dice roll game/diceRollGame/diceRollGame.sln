@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "diceRollGame", "diceRollGame\diceRollGame.csproj", "{940079C0-B4D8-4422-B92C-794482BF6A1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "diceRollGame", "diceRollGame\diceRollGame.csproj", "{940079C0-B4D8-4422-B92C-794482BF6A1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceGameSolution", "DiceGameSolution\DiceGameSolution.csproj", "{339CF70D-A797-4882-8175-4464B6DEDCFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{940079C0-B4D8-4422-B92C-794482BF6A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{940079C0-B4D8-4422-B92C-794482BF6A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{940079C0-B4D8-4422-B92C-794482BF6A1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{339CF70D-A797-4882-8175-4464B6DEDCFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{339CF70D-A797-4882-8175-4464B6DEDCFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{339CF70D-A797-4882-8175-4464B6DEDCFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{339CF70D-A797-4882-8175-4464B6DEDCFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

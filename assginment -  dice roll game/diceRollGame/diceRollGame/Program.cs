@@ -2,27 +2,27 @@
 /*
 Dice:
 - dice read only ( user does not need to see)
-- roll dice
+
 
 validate:
 - validate:  
     - if input value is digit
         - checks if input value and dice value are same
 
+GussingGame:
+- should play the game and CW prompts 
  */
 
-class Dice
+public class Dice
 {
     private readonly Random random = new Random();
     public int _dice { get; }
-
     public Dice()
     {
-
         _dice = random.Next(1, 7);
     }
 }
-static class Validate {
+public static class Validate {
     public static bool IsValidInput(string userInput)
     {//we are not using res but we want to use tryParse so it wont throw loud error
         return int.TryParse(userInput, out int res) ;
@@ -33,46 +33,59 @@ static class Validate {
     }
 }
 
-
-class Program
+public class GuessingGame
 {
-    static void Main()
+    private readonly Dice dice;
+    private readonly int maxTrials = 3;
+    public GuessingGame()
     {
+        this.dice = new Dice();
+ 
+    }
+    public void PlayGame()
+    {
+        Console.WriteLine($"Dice rolled. Guess what number it shows in {maxTrials} tries.");
+        int trialsLeft = maxTrials;
 
-        var newGame = new Dice();
-        var diceVal = newGame._dice;
-        int i = 0;
-        int maxTrials = 3;
-
-        Console.WriteLine(diceVal);
-        while (i < maxTrials)
+        while (trialsLeft > 0)
         {
-            Console.WriteLine($"Please enter your guess you have {maxTrials - i} attemps");
+            Console.WriteLine($"Please enter your guess. You have {trialsLeft} attempts left.");
             var userInput = Console.ReadLine();
 
             if (Validate.IsValidInput(userInput))
             {
                 var userGuess = int.Parse(userInput);
 
-                if (Validate.IsCorrectGuess(userGuess, diceVal))
+                if (Validate.IsCorrectGuess(userGuess, dice._dice))
                 {
                     Console.WriteLine("You WON!");
-                    break;
+                    return;
                 }
                 else
                 {
-                    Console.WriteLine($"Try again");
+                    Console.WriteLine("Try again.");
                 }
             }
-            else 
+            else
             {
-                Console.WriteLine($"invalid input try again");
+                Console.WriteLine("Invalid input. Try again.");
                 continue;
             }
-            i++;
+
+            trialsLeft--;
         }
 
         Console.WriteLine("You Lose");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        var guessingGame = new GuessingGame();
+        guessingGame.PlayGame();
+
         Console.ReadKey();
     }
 }
