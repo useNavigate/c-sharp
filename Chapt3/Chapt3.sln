@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "class_boilder_template", "c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "82_object_initializers", "82_object_initializers\82_object_initializers.csproj", "{7AA73430-8F56-4E1B-AC29-405584935B5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "singleResponsibilityPrinciple", "singleResponsibilityPrinciple\singleResponsibilityPrinciple.csproj", "{CC0838B9-B6F2-412C-932F-E065F23C02B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_86_singleResponsibilityPrinciple", "singleResponsibilityPrinciple\_86_singleResponsibilityPrinciple.csproj", "{CC0838B9-B6F2-412C-932F-E065F23C02B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

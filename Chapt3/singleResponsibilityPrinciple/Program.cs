@@ -1,10 +1,25 @@
-﻿var names = new Names();
-var path = names.BuildFilePath();
+﻿using _86_singleResponsibilityPrinciple.DataAccess;
+//using System.Diagnostics; //contains a stopwatch which allows us to measure execute time
 
+
+var stopwatch = Stopwatch.StartNew();
+
+for (int i = 0; i < 1000; i++)
+{
+    Console.WriteLine($"Loop number  {i}");
+}
+stopwatch.Stop();
+Console.WriteLine("Time in ms :  " + stopwatch.ElapsedMilliseconds);
+
+
+var names = new Names();
+var path = new NamesFilePathBuilder().BuildFilePath();
+var stringTextualRespository = new StringTextualRespository();
 if (File.Exists(path))
 {
     Console.WriteLine("Names file already exists. Loading names.");
-    names.ReadFromTextFile();
+    var stringsFromFile = stringTextualRespository.Read(path);
+    names.AddNames(stringsFromFile);
 }
 else
 {
@@ -17,53 +32,8 @@ else
     names.AddName("123 definitely not a valid name");
 
     Console.WriteLine("Saving names to the file.");
-    names.WriteToTextFile();
+    stringTextualRespository.Write(path, names.All);
 }
-Console.WriteLine(names.Format());
+Console.WriteLine(new NamesFormatter().Format(names.All));
 
 Console.ReadLine();
-
-public class Names
-{
-    private readonly List<string> _names = new List<string>();
-
-    public void AddName(string name)
-    {
-        if (IsValidName(name))
-        {
-            _names.Add(name);
-        }
-    }
-
-    private bool IsValidName(string name)
-    {
-        return
-            name.Length >= 2 &&
-            name.Length < 25 &&
-            char.IsUpper(name[0]) &&
-            name.All(char.IsLetter);
-    }
-
-    public void ReadFromTextFile()
-    {
-        var fileContents = File.ReadAllText(BuildFilePath());
-        var namesFromFile = fileContents.Split(Environment.NewLine).ToList();
-        foreach (var name in namesFromFile)
-        {
-            AddName(name);
-        }
-    }
-
-    public void WriteToTextFile() =>
-        File.WriteAllText(BuildFilePath(), Format());
-
-    public string BuildFilePath()
-    {
-        //we could imagine this is much more complicated
-        //for example that path is provided by the user and validated
-        return "names.txt";
-    }
-
-    public string Format() =>
-        string.Join(Environment.NewLine, _names);
-}
