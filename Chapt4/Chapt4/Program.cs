@@ -33,12 +33,12 @@ Inheritance
  virtual methods or properties may be overridden  by the inheriting types
  */
 
-var pizza = new Pizza();
+//var pizza = new Pizza();
 
-pizza.AddIngredient(new Cheddar());
-pizza.AddIngredient(new Mozzarella());
-pizza.AddIngredient(new TomatoSauce());
-Console.WriteLine(pizza.Describe());
+//pizza.AddIngredient(new Cheddar());
+//pizza.AddIngredient(new Mozzarella());
+//pizza.AddIngredient(new TomatoSauce());
+//Console.WriteLine(pizza.Describe());
 
 //var ingredients = new List<Ingredient>
 //{
@@ -52,11 +52,22 @@ Console.WriteLine(pizza.Describe());
 //    Console.WriteLine(ingredient.Name);
 //}
 
-var cheddar = new Cheddar();
+//var cheddar = new Cheddar();
+//Console.WriteLine(cheddar);
+//Console.WriteLine(new List<int>());
+
+//var ingredient = new Ingredient(1);
+
+
+var cheddar = new Cheddar(2,8);
+/*
+ cheddar 
+1. it will call the base class first with argument 
+2. then the constructor from the Cheddar class will be called
+3. 
+ */
+
 Console.WriteLine(cheddar);
-Console.WriteLine(new List<int>());
-
-
 Console.ReadKey();
 
 
@@ -70,6 +81,16 @@ public class Pizza
 public class Ingredient
 {
 
+    
+    public Ingredient(int priceIfExtraOpping)
+    {
+        Console.WriteLine("Constructor from the Ingredient class");
+        PriceIfExtraOpping = priceIfExtraOpping;
+    }
+
+    public int PriceIfExtraOpping { get; }
+
+
     //we are overiding ToString! 
     public override string ToString() => Name;
     public virtual string Name { get; } = "Some  ingredient";
@@ -81,15 +102,29 @@ public class Ingredient
 
 public class Cheese : Ingredient
 {
-
+    public Cheese(int priceIfExtraOpping) : base(priceIfExtraOpping)
+    {
+    }
 }
 
 /*
  Protected members can be used in the derived classes, but they can't be used outside;
  */
-public class Cheddar : Cheese
+public class Cheddar : Ingredient
 {
-    public override string Name => "Cheddar cheese";
+    public Cheddar(int priceIfExtraTopping, int agedForMonths) : base(priceIfExtraTopping)
+    {
+        AgedForMonths = agedForMonths;
+        Console.WriteLine("Constructor from the Cheddar class");
+ 
+    }
+
+    /*
+     when we do console.writeLine under the hood it use toString
+    our base class Ingredient has this line public override string ToString() => Name; 
+    which monkeypatching the ToString method , so when we do console.writeline its actually showing the name 
+     */
+    public override string Name => $"{base.Name}, more specifically, a Cheddar cheese aged for {AgedForMonths}";
     public int AgedForMonths { get; }
     public void UseMethodsFromBaeClass()
     {
@@ -101,6 +136,10 @@ public class Cheddar : Cheese
 
 public class TomatoSauce : Ingredient
 {
+    public TomatoSauce(int priceIfExtraOpping) : base(priceIfExtraOpping)
+    {
+    }
+
     public override string Name => "Tomato Sauce";
     public int AgedForMonths { get; }
 }
@@ -113,6 +152,10 @@ public class ItalianFoodItem
 
 public class Mozzarella : Cheese
 {
+    public Mozzarella(int priceIfExtraOpping) : base(priceIfExtraOpping)
+    {
+    }
+
     public override string Name => "Mozarella";
     public bool IsLight { get; }
 }

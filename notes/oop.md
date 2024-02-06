@@ -466,3 +466,39 @@ Measuring the time of code execution can be achieved by capturing the current ti
 - Derived classes can override base class properties/methods to add specific functionality.
 - Derived classes are more specific versions of base classes, inheriting and extending their functionality.
 
+
+```csharp
+public class Ingredient
+{
+    // Base class constructor with an argument
+    public Ingredient(int price)
+    {
+        Console.WriteLine($"Constructor from the Ingredient class with price: {price}");
+    }
+}
+
+public class Cheddar : Ingredient
+{
+    // Derived class constructor with arguments using the "base" keyword
+    public Cheddar(int priceIfExtraTopping, int agedForMonths) : base(priceIfExtraTopping)
+    {
+        Console.WriteLine($"Constructor from the Cheddar class with price for extra topping: {priceIfExtraTopping}, and aged for {agedForMonths} months");
+    }
+}
+```
+
+### Summary 109: Implicit Conversion in C#
+
+- Implicit conversion occurs when a conversion is safe and lossless, without requiring special syntax like explicit cast expressions.
+- In C#, there are two main kinds of conversion: implicit and explicit.
+- Decimal is a numeric type used to represent floating-point numbers with high precision, often used for monetary values.
+- Double is another floating-point numeric type in C#, which is less precise but faster than decimal.
+- Decimal literals must be suffixed with the letter "M" to indicate the decimal type.
+- Implicit conversion examples include assigning an integer value to a variable of type decimal.
+- Implicit conversion from one type to another occurs behind the scenes without requiring special syntax.
+- Implicit conversion can only occur if it is safe and lossless.
+- It's essential for implicit conversion always to succeed and not modify or trim any data to avoid unexpected runtime behavior.
+
+```csharp
+int intValue = 10;
+decimal decimalValue = intValue;
