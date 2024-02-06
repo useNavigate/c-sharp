@@ -450,3 +450,19 @@ Global using directives are used in C# to import namespaces globally across the 
 ## How to measure the time of code execution
 Measuring the time of code execution can be achieved by capturing the current time before and after the code block, then calculating the time difference.
 
+
+### Summary 108.inheriting constructors and the `base` keyword: Key Points on Constructors and Inheritance in C#
+
+- Constructors are special methods executed at object creation.
+- When a derived class object is created, both base and derived constructors are called.
+- Base class constructor initializes common fields/properties, followed by the derived class constructor.
+- Constructors can be customized to set specific state for both base and derived types.
+- The "base" keyword is used to refer to the base class constructor or any accessible member.
+- Errors occur when not passing arguments to constructors that require them.
+- To resolve errors, pass arguments using the "base" keyword in derived class constructors.
+- Derived class constructors can initialize properties specific to that class.
+- Proper constructors should be generated in all derived classes.
+- The "base" keyword can be used to refer to base class members accessible in derived classes.
+- Derived classes can override base class properties/methods to add specific functionality.
+- Derived classes are more specific versions of base classes, inheriting and extending their functionality.
+

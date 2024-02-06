@@ -15,11 +15,6 @@ Inheritance
   the class that inherits those members is called the DERIVED CLASS
  */
 
-//var pizza = new Pizza();
-
-//pizza.AddIngredient(new Cheddar());
-//pizza.AddIngredient(new Mozzarella());
-//pizza.AddIngredient(new TomatoSauce());
 
 //Console.WriteLine(pizza.Describe());
 
@@ -38,19 +33,33 @@ Inheritance
  virtual methods or properties may be overridden  by the inheriting types
  */
 
+var pizza = new Pizza();
 
-var ingredients = new List<Ingredient>
-{
-    new Cheddar(),
-    new Mozzarella(),
-    new TomatoSauce()
-};
+pizza.AddIngredient(new Cheddar());
+pizza.AddIngredient(new Mozzarella());
+pizza.AddIngredient(new TomatoSauce());
+Console.WriteLine(pizza.Describe());
 
-foreach (Ingredient ingredient in ingredients)
-{
-    Console.WriteLine(ingredient.Name);
-}
+//var ingredients = new List<Ingredient>
+//{
+//    new Cheddar(),
+//    new Mozzarella(),
+//    new TomatoSauce()
+//};
+
+//foreach (Ingredient ingredient in ingredients)
+//{
+//    Console.WriteLine(ingredient.Name);
+//}
+
+var cheddar = new Cheddar();
+Console.WriteLine(cheddar);
+Console.WriteLine(new List<int>());
+
+
 Console.ReadKey();
+
+
 public class Pizza
 {
     private List<Ingredient> _ingredients = new List<Ingredient>();
@@ -60,6 +69,9 @@ public class Pizza
 
 public class Ingredient
 {
+
+    //we are overiding ToString! 
+    public override string ToString() => Name;
     public virtual string Name { get; } = "Some  ingredient";
     public int PublicField;
     public string PublicMethod() => "This method is PUBLIC in the Ingredient class.";
@@ -67,10 +79,15 @@ public class Ingredient
     private string PrivateMethod() => "This method is PRIVATE in the Ingredient class.";
 }
 
+public class Cheese : Ingredient
+{
+
+}
+
 /*
  Protected members can be used in the derived classes, but they can't be used outside;
  */
-public class Cheddar : Ingredient
+public class Cheddar : Cheese
 {
     public override string Name => "Cheddar cheese";
     public int AgedForMonths { get; }
@@ -84,12 +101,17 @@ public class Cheddar : Ingredient
 
 public class TomatoSauce : Ingredient
 {
-    public string Name => "Tomato Sauce";
+    public override string Name => "Tomato Sauce";
     public int AgedForMonths { get; }
 }
 
 
-public class Mozzarella : Ingredient
+public class ItalianFoodItem
+{ 
+
+}
+
+public class Mozzarella : Cheese
 {
     public override string Name => "Mozarella";
     public bool IsLight { get; }
