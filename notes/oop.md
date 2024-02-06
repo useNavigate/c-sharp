@@ -502,3 +502,146 @@ public class Cheddar : Ingredient
 ```csharp
 int intValue = 10;
 decimal decimalValue = intValue;
+```
+
+
+### Summary 110: Explicit Conversion in C#
+
+- Explicit conversion occurs when a conversion is not safe or lossless, requiring special syntax like explicit cast expressions.
+- Implicit conversion cannot handle scenarios where data loss may occur, so explicit conversion is necessary.
+- The `decimal` type in C# is used for high-precision floating-point numbers, often representing monetary values.
+- Conversion from a `decimal` to an `int` must be done explicitly due to potential data loss.
+- Explicit cast expressions, like `(int)decimalValue`, are used to inform the compiler that data loss may occur, but the conversion is intentional.
+- Attempting to convert a large `decimal` to an `int` may result in runtime errors if the value is too large to fit into the `int` type.
+- The C# compiler may detect potential conversion errors at compile-time, such as attempting to cast incompatible types like `int` to `string`.
+- Casting enums from integers should be done explicitly to avoid unintentional behavior.
+- Using explicit casting helps prevent runtime errors and ensures that conversion behavior is deliberate and predictable.
+
+```csharp
+// Explicit conversion from decimal to int
+decimal decimalValue = 10.01m;
+int intValue = (int)decimalValue;
+```
+
+
+### Summary 111: Upcasting and Downcasting in C#
+
+- Upcasting involves converting a derived class to a base class, while downcasting involves converting a base class to a derived class.
+- Upcasting is safe and lossless because a derived class inherits all members of the base class.
+- Downcasting is risky because not every instance of the base class may be of the derived type.
+- Upcasting does not require explicit cast expressions as it is safe and lossless.
+- Downcasting requires explicit cast expressions and may result in runtime errors if the conversion fails.
+- Using the "is" operator helps determine if downcasting will succeed before attempting it.
+
+```csharp
+// Upcasting: Assigning a derived class object to a base class variable
+Ingredient ingredient = new Cheddar();
+```
+In this example, a Cheddar object is implicitly upcasted to an Ingredient variable ingredient. Since every Cheddar is an Ingredient, this conversion is safe and lossless.
+
+```csharp
+// Downcasting: Attempting to assign a base class object to a derived class variable
+Ingredient baseIngredient = GenerateRandomIngredient();
+Cheddar cheddar = (Cheddar)baseIngredient; // Explicit downcasting
+```
+In this example, a base class object returned by GenerateRandomIngredient() is attempted to be downcasted to a Cheddar variable cheddar. This requires explicit casting and may result in a runtime error if the object is not actually of type Cheddar
+
+```csharp
+// Using the "is" operator to check if downcasting will succeed
+Ingredient baseIngredient = GenerateRandomIngredient();
+if (baseIngredient is Cheddar)
+{
+    Cheddar cheddar = (Cheddar)baseIngredient; // Safe downcasting
+}
+```
+In this example, the `is` operator is used to check if baseIngredient is of type Cheddar before attempting downcasting. This helps prevent runtime errors by ensuring that downcasting only occurs when it will succeed.
+
+### Summary 112: Understanding the "is" Operator in C#
+
+- The "is" operator is used to check if an object is of a given type.
+- It evaluates to `true` if the object is of the specified type, otherwise `false`.
+- It is useful for determining the type of an object before performing type-specific operations.
+- When used with inheritance, the "is" operator helps ensure safe downcasting.
+- Upcasting involves converting a derived type to a base type and can be done implicitly.
+- Downcasting, converting from a base type to a derived type, requires explicit casting and may fail if the object is not of the expected type.
+- Using the "is" operator before downcasting helps prevent runtime errors by verifying if the cast is safe.
+- Downcasting should be used cautiously as it may indicate design flaws and should be avoided when possible.
+
+```csharp
+// Example usage of the "is" operator to check object types
+object wordObject = "Hello";
+bool isString = wordObject is string; // true
+bool isInt = wordObject is int; // false
+
+// Using the "is" operator in the context of ingredients
+Ingredient cheddar = new Cheddar();
+Console.WriteLine(cheddar is Cheddar); // true
+Console.WriteLine(cheddar is Ingredient); // true
+Console.WriteLine(cheddar is object); // true
+Console.WriteLine(cheddar is Mozzarella); // false
+Console.WriteLine(cheddar is TomatoSauce); // false
+
+// Using the "is" operator to check if downcasting is safe
+Ingredient randomIngredient = GenerateRandomIngredient();
+if (randomIngredient is Cheddar cheddar)
+{
+    // Safe downcasting, access cheddar variable here
+    Console.WriteLine("Conversion to Cheddar successful.");
+}
+else
+{
+    Console.WriteLine("Random ingredient is not Cheddar.");
+}
+```
+
+### Summary 113: Understanding Null in C#
+
+- In C#, variables must be initialized before use, but class fields get initialized to default values.
+- Default values for fields are automatically assigned based on their types.
+- For reference types (objects), the default value is null, indicating no instance is stored.
+- NullReferenceException occurs when trying to access members of a null object.
+- Visual Studio may provide warnings for potential null reference issues.
+- To avoid NullReferenceException, check for null before accessing members.
+- Use inequality operator or "is not null" operator to check for null.
+- Some types like integers, booleans, and DateTimes cannot be assigned null.
+
+```csharp
+// Example usage of null in C#
+class Pizza
+{
+    // Fields without explicit initialization
+    private int slices;
+    private DateTime deliveryTime;
+
+    // Default values for fields
+    private int defaultInt; // 0
+    private bool defaultBool; // false
+    private DateTime defaultDateTime; // January 1, year 1
+
+    // Field with reference type (object)
+    private Ingredient topping;
+
+    public void PreparePizza()
+    {
+        // Accessing uninitialized fields (null for reference type)
+        Console.WriteLine(topping); // null
+
+        // Explicitly assigning null to an object
+        Ingredient ingredient = null;
+
+        // NullReferenceException example
+        // Console.WriteLine(ingredient.Name); // Throws NullReferenceException
+
+        // Checking for null before accessing members
+        if (ingredient != null)
+        {
+            Console.WriteLine(ingredient.Name); // Safe access
+        }
+
+        // Using "is not null" operator for null check
+        if (ingredient is not null)
+        {
+            Console.WriteLine(ingredient.Name); // Safe access
+        }
+    }
+}

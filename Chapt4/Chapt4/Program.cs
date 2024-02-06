@@ -59,7 +59,7 @@ Inheritance
 //var ingredient = new Ingredient(1);
 
 
-var cheddar = new Cheddar(2,8);
+//var cheddar = new Cheddar(2,8);
 /*
  cheddar 
 1. it will call the base class first with argument 
@@ -68,28 +68,87 @@ var cheddar = new Cheddar(2,8);
  */
 
 
+//-------casting
 
-
-int seasonNumber = 0;
+//int seasonNumber = 0;
 
 //explicit cast expression
-Season spring = (Season)seasonNumber;
+//Season spring = (Season)seasonNumber;
 
 //decimal is used to repreent precisely floating -point numbers
 // m stands for money.
 
 //decimal a = 10.01m; 
 
-int integer = 10;
+//int integer = 10;
 /*
  implicit conversion happens here
  Implicit Conversion can only happen if conversion from one type to another is safe and lossless.
 */
-decimal b = integer;
+//decimal b = integer;
+//decimal c = 10.01m;
+//int d = (int)c;
 
-Console.WriteLine("b " ,+b);
+//int secondSeasonNumber = 11;
+//Season summer = (Season)secondSeasonNumber;
+//Console.WriteLine(summer); // it will console out 11 
+//implicitly casting does not give us any error so it s best to use explicit casting 
+
+// casting ------------
+
+
+//upcasting ---------------
+//Ingredient ingredient = new Cheddar(2, 12);
+//Ingredient randomIngredient = GenerateRandomIngredient();
+//Console.WriteLine("Random ingredeint is" + randomIngredient);
+
+
+//Cheddar cheddar = (Cheddar)randomIngredient;
+//Console.WriteLine("Cheddar --" + cheddar);
+//------------------------
+
+
+//112 `is`-----------
+//Ingredient ingredient = new Cheddar(2, 12);
+//Ingredient randomIngredient = GenerateRandomIngredient();
+//Console.WriteLine("Random ingredeint is" + randomIngredient);
+
+//Console.WriteLine("is object? " +(ingredient is object));
+//Console.WriteLine("is ingredient? " +(ingredient is Ingredient));
+//Console.WriteLine("is cheddar? " + (ingredient is Cheddar));
+//Console.WriteLine("is Mozzarella ? " + (ingredient is Mozzarella));
+//Console.WriteLine("is tomato sauce? " + (ingredient is TomatoSauce));
+
+//Cheddar cheddar = (Cheddar)randomIngredient;
+
+
+//if (randomIngredient is Cheddar cheddar)
+//{
+//    Console.WriteLine("Cheddar object: " + cheddar);
+//}
+
+
+
+var pizza = new Pizza();
+Ingredient nullIsgredient = null;
+
+if (nullIsgredient is not null)
+{
+    Console.WriteLine(nullIsgredient.Name);
+}
+
 
 Console.ReadKey();
+
+
+Ingredient GenerateRandomIngredient()
+{
+    var random = new Random();
+    var number = random.Next(1, 4);
+    if (number == 1) { return new Cheddar(2, 12); }
+    if (number == 2) { return new TomatoSauce(1); }
+    else return new Mozzarella(2);
+}
 
 //Decimal is used to represent precisely floating-point numbers.
 public enum Season
@@ -99,8 +158,16 @@ public enum Season
     Autumn,
     Winter
 }
+
 public class Pizza
 {
+    //these will set to default value; 
+
+    //public int number;
+    //public DateTime date;
+
+    public Ingredient ingredient;
+
     private List<Ingredient> _ingredients = new List<Ingredient>();
     public void AddIngredient(Ingredient ingredient) => _ingredients.Add(ingredient);
     public string Describe() => $"This is a pizza with {string.Join(", ", _ingredients)}";
