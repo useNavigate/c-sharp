@@ -67,10 +67,38 @@ var cheddar = new Cheddar(2,8);
 3. 
  */
 
-Console.WriteLine(cheddar);
+
+
+
+int seasonNumber = 0;
+
+//explicit cast expression
+Season spring = (Season)seasonNumber;
+
+//decimal is used to repreent precisely floating -point numbers
+// m stands for money.
+
+//decimal a = 10.01m; 
+
+int integer = 10;
+/*
+ implicit conversion happens here
+ Implicit Conversion can only happen if conversion from one type to another is safe and lossless.
+*/
+decimal b = integer;
+
+Console.WriteLine("b " ,+b);
+
 Console.ReadKey();
 
-
+//Decimal is used to represent precisely floating-point numbers.
+public enum Season
+{ 
+    Spring,
+    Summer,
+    Autumn,
+    Winter
+}
 public class Pizza
 {
     private List<Ingredient> _ingredients = new List<Ingredient>();
