@@ -2888,7 +2888,8 @@ class Program
 - **Need for Interfaces:** Recognized the need for interfaces in C#.
   - **Interfaces:** Allow us to define a contract that classes can implement, specifying the methods they must provide without restricting them from inheriting from other classes.
 - **Example:**
-  ```csharp
+
+```csharp
   // Abstract base class approach
   public abstract class Bakeable
   {
@@ -2915,3 +2916,115 @@ class Program
   // Attempting to create a list with different types (not possible)
   // List<Bakeable> dishes = new List<Bakeable> { new Pizza(), new Panettone() }; // Compile error
 ```
+
+
+## Summary: Understanding Interfaces in C#
+
+- Interfaces define a base type for types exposing methods with the same signature.
+- They create a relationship based on shared behavior rather than inheritance.
+- Implementing interfaces obligates types to implement all methods declared in the interface.
+- Methods in interfaces are implicitly public and virtual, and implementing methods must also be public.
+- Interfaces cannot be instantiated; they only define contracts for implementing types.
+- Multiple interfaces can be implemented by a single class, allowing for flexibility in behavior.
+- Interfaces typically contain method and property declarations but can include default implementations, although this practice is rare.
+- Interfaces provide a way to achieve polymorphism and create loosely coupled systems.
+- They are commonly used to define common behavior across unrelated types.
+
+```csharp
+using System;
+using System.Collections.Generic;
+
+public interface IFlyable
+{
+    void Fly();
+}
+
+public class Bird : IFlyable
+```
+
+## Summary: Understanding the Differences Between Interfaces and Abstract Classes in C#
+
+- **Interface**:
+  - Defines a contract specifying what set of operations will be provided by any class implementing it.
+  - Contains method and property declarations but no implementations.
+  - Represents behavior abstraction and defines what an object can do.
+  - Methods are implicitly public, virtual, and cannot have any other access modifier.
+  - Cannot contain fields or constructors.
+  - A class can implement multiple interfaces.
+  - Used when a group of types share similar behavior.
+  
+```csharp
+  public interface IFlyable
+  {
+      void Fly();
+  }
+```
+- **Abstract Class**:
+  - Serves as a blueprint for derived classes, representing a general category of things.
+  - Can contain method implementations, abstract methods, fields, and constructors.
+  - Represents alikeness abstraction and defines what an object is.
+  - Methods can have various access modifiers and can be sealed or static.
+  - Can contain fields and constructors.
+  - A class can inherit from only one abstract class.
+  - Used when a group of types belong to the same general category of things.
+```csharp
+public abstract class Animal
+{
+    public abstract void MakeSound();
+}
+
+```
+## Summary: Introduction to JSON Serialization and Deserialization in C#
+
+- **JSON and XML**:
+  - Common formats for saving objects in a textual format.
+  - Both hierarchical, self-describing, and human-readable.
+  - JSON is shorter, quicker to read/write, and better for storing arrays.
+  
+- **Serialization and Deserialization**:
+  - Process of translating C# objects to and from textual formats like JSON.
+  - JSON serialization and deserialization can be done using libraries like Json.NET or built-in JsonSerializer class in .NET.
+  - Libraries provide pre-written code to make programming tasks easier.
+
+- **JsonSerializer Class**:
+  - Part of the System.Text.Json namespace in .NET.
+  - Used for serializing and deserializing objects to and from JSON format.
+  
+- **Example**:
+  - Defined a simple Person class with first name, last name, and year of birth.
+  - Serialized an instance of Person to JSON using JsonSerializer.Serialize method.
+  - Demonstrated escaping quote characters when pasting JSON strings.
+  - Deserialized JSON string back to a Person object using JsonSerializer.Deserialize method.
+  
+  Example Code:
+  ```csharp
+  using System;
+  using System.Text.Json;
+
+  public class Person
+  {
+      public string FirstName { get; set; }
+      public string LastName { get; set; }
+      public int YearOfBirth { get; set; }
+  }
+
+  class Program
+  {
+      static void Main(string[] args)
+      {
+          Person person = new Person
+          {
+              FirstName = "John",
+              LastName = "Doe",
+              YearOfBirth = 1990
+          };
+
+          // Serialize to JSON
+          string json = JsonSerializer.Serialize(person);
+          Console.WriteLine(json);
+
+          // Deserialize from JSON
+          Person deserializedPerson = JsonSerializer.Deserialize<Person>(json);
+          Console.WriteLine($"Deserialized: {deserializedPerson.FirstName} {deserializedPerson.LastName} ({deserializedPerson.YearOfBirth})");
+      }
+  }
