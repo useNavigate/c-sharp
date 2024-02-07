@@ -129,7 +129,7 @@ Inheritance
 
 
 
-var pizza = new Pizza();
+/*var pizza = new Pizza();
 Ingredient nullIsgredient = null;
 
 if (nullIsgredient is not null)
@@ -138,27 +138,82 @@ if (nullIsgredient is not null)
 }
 
 
+*/
+//is -----------------------------------------------------|
+
+//as -----------------------------------------------------| 
+
+//Ingredient ingredient = GenerateRandomIngredient();
+//Console.WriteLine("Ingredient is " + ingredient);
+////Cheddar cheddar = (Cheddar)Ingredient //=> will cause an exception if cast fails. => works with any type but gives a runtime error if cast fails
+//Cheddar cheddar = ingredient as Cheddar; //=> will give null if cast fails => only works for cast to nullable types.
+
+////int number = ingredient as int; //=> wont work because int cannot be assigned as Null
+
+//if (cheddar is not null)
+//{
+//    Console.WriteLine(cheddar.Name);
+//}
+//else
+//{
+//    Console.WriteLine("Conversioin failed");
+//}
+
+
+//-----------------------------------------------------|
+
+
+
+
+
+
+//abstract class --------------------------------------|
+
+
+
+
+
+//Ingredient GenerateRandomIngredient()
+//{
+//    var random = new Random();
+//    var number = random.Next(1, 4);
+//    if (number == 1) { return new Cheddar(2, 12); }
+//    if (number == 2) { return new TomatoSauce(1); }
+//    else return new Mozzarella(2);
+//}
+
+////Decimal is used to represent precisely floating-point numbers.
+
+
+
+//EXTENDS---------------
+using Chapt4.Extensions;
+var multilineText = @"aaaa
+bbbb
+cccc
+dddd";
+Console.WriteLine("Count of lines is " + multilineText.CountLines());
+
+
+
+Console.WriteLine("Next after Spring is " + Season.Spring.Next());
+
 Console.ReadKey();
-
-
-Ingredient GenerateRandomIngredient()
-{
-    var random = new Random();
-    var number = random.Next(1, 4);
-    if (number == 1) { return new Cheddar(2, 12); }
-    if (number == 2) { return new TomatoSauce(1); }
-    else return new Mozzarella(2);
-}
-
-//Decimal is used to represent precisely floating-point numbers.
 public enum Season
-{ 
+{
     Spring,
     Summer,
     Autumn,
     Winter
 }
 
+//var cheddar = new Cheddar(2, 12);
+//var tomatoSauce = new TomatoSauce(1);
+//cheddar.Prepare();
+//tomatoSauce.Prepare();
+
+
+//Console.ReadKey();
 public class Pizza
 {
     //these will set to default value; 
@@ -173,10 +228,10 @@ public class Pizza
     public string Describe() => $"This is a pizza with {string.Join(", ", _ingredients)}";
 }
 
-public class Ingredient
-{
 
-    
+//Abstract classes cannot be instantiated. They only serve as base calsses for other more concrete types
+public abstract class Ingredient
+{
     public Ingredient(int priceIfExtraOpping)
     {
         Console.WriteLine("Constructor from the Ingredient class");
@@ -185,20 +240,45 @@ public class Ingredient
 
     public int PriceIfExtraOpping { get; }
 
-
     //we are overiding ToString! 
     public override string ToString() => Name;
     public virtual string Name { get; } = "Some  ingredient";
+
+
+    //all abstract methods are implicitly virtual, which means it is possible to override them in the derived 
+    // Must be overridden in non-abstract derived classes.
+
+    /*virtual methods can defined two ways : by adding the virtual modifier or by adding the abstract modifier
+     
+    VIRTUAL MODIFIRE : 
+      - must have an implemnetation.
+      - Overriding it is optional.
+    
+
+    ABSTRACT MODIFIRE : 
+    - can't have an implementation.
+    - overridding  it is obligatory. 
+
+    Usually when people talk about virtual  methods, they mean methods with the virtual modifire, 
+    even if technincally abstract methods are virtual as well. 
+    
+
+     */
+    public abstract  void Prepare();
+
+
     public int PublicField;
     public string PublicMethod() => "This method is PUBLIC in the Ingredient class.";
     protected string ProtectedMethod() => "This method is Protected in the Ingredient class.";
     private string PrivateMethod() => "This method is PRIVATE in the Ingredient class.";
 }
 
-public class Cheese : Ingredient
+    //we can only skipovverriding the abstract method from the base class if the derived class is abstract itself.
+public abstract class Cheese : Ingredient
 {
     public Cheese(int priceIfExtraOpping) : base(priceIfExtraOpping)
     {
+
     }
 }
 
@@ -221,6 +301,9 @@ public class Cheddar : Ingredient
      */
     public override string Name => $"{base.Name}, more specifically, a Cheddar cheese aged for {AgedForMonths}";
     public int AgedForMonths { get; }
+
+    public override void Prepare() => Console.WriteLine("Grate and sprinkle over pizza");
+
     public void UseMethodsFromBaeClass()
     {
         Console.WriteLine(PublicMethod());
@@ -237,15 +320,27 @@ public class TomatoSauce : Ingredient
 
     public override string Name => "Tomato Sauce";
     public int AgedForMonths { get; }
+    public sealed override void Prepare() => Console.WriteLine("Coook tomatoes with basil, garlic and salt. " + "Spread on pizza.");
 }
 
+public class SpecialTomatoSauce : TomatoSauce
+{
+    public SpecialTomatoSauce(int priceIfExtraOpping) : base(priceIfExtraOpping)
+    {
 
+    }
+    
+}
 public class ItalianFoodItem
 { 
 
 }
 
-public class Mozzarella : Cheese
+// Only virtual members can be overridden
+// all abstract methods are implicitly virtual. 
+
+
+public sealed class Mozzarella : Cheese
 {
     public Mozzarella(int priceIfExtraOpping) : base(priceIfExtraOpping)
     {
@@ -253,4 +348,10 @@ public class Mozzarella : Cheese
 
     public override string Name => "Mozarella";
     public bool IsLight { get; }
+
+    public override void Prepare()
+    {
+        Console.WriteLine("Slice thinly and place on top of the pizza.");
+
+    }
 }
