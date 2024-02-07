@@ -18,10 +18,10 @@
   - Shortcut: Ctrl+D to duplicate a line.
 
 - Example of variable declaration and initialization:
-  ```csharp
+```csharp
   string userInput = "A";
   int number = 4;
-  ```
+```
 
 - Error handling:
 
@@ -1494,7 +1494,6 @@ public class Rectangle {
 - Method overloading allows us to define multiple methods with the same name in a class, but with different parameter lists. This enables us to provide multiple ways to call a method depending on the arguments passed to it.
 
 ```csharp
-```csharp
 public class MedicalAppointment
 {
     private string patientName;
@@ -2930,16 +2929,40 @@ class Program
 - Interfaces provide a way to achieve polymorphism and create loosely coupled systems.
 - They are commonly used to define common behavior across unrelated types.
 
+- inheritane creates an `is a` kind of relationship between types.
+- interfaces create a `behaves-like` kind of relationship between types
+
+- you will get error if you try to => change the parameters or the return types. - inheritane creates an `is a` kind of relationship between types.
+- interface methods needs to be `public`
+- please be aware that the method defined in an interface are always `implicitly virtual`
+
 ```csharp
 using System;
 using System.Collections.Generic;
+
 
 public interface IFlyable
 {
     void Fly();
 }
+public class Bird : IFlyable 
+{
+    public void Tweet() =>
+        Console.WriteLine("Tweet, tweet!");
 
-public class Bird : IFlyable
+    public void Fly() =>
+        Console.WriteLine("Flying using its wings");
+
+    public class Kite : IFlyable
+    {
+        public void Fly() => Console.WriteLine("Flying carried by the wind");
+    }
+
+    public class Plane : IFlyable
+    {
+        public void Fly() => Console.WriteLine("Flying by technology");
+    }
+}
 ```
 
 ## Summary: Understanding the Differences Between Interfaces and Abstract Classes in C#
@@ -2997,7 +3020,7 @@ public abstract class Animal
   - Deserialized JSON string back to a Person object using JsonSerializer.Deserialize method.
   
   Example Code:
-  ```csharp
+```csharp
   using System;
   using System.Text.Json;
 
@@ -3028,3 +3051,4 @@ public abstract class Animal
           Console.WriteLine($"Deserialized: {deserializedPerson.FirstName} {deserializedPerson.LastName} ({deserializedPerson.YearOfBirth})");
       }
   }
+```

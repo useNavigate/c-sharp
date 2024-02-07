@@ -187,25 +187,25 @@ if (nullIsgredient is not null)
 
 
 //EXTENDS---------------
-using Chapt4.Extensions;
-var multilineText = @"aaaa
-bbbb
-cccc
-dddd";
-Console.WriteLine("Count of lines is " + multilineText.CountLines());
+//using Chapt4.Extensions;
+//var multilineText = @"aaaa
+//bbbb
+//cccc
+//dddd";
+//Console.WriteLine("Count of lines is " + multilineText.CountLines());
 
 
 
-Console.WriteLine("Next after Spring is " + Season.Spring.Next());
+//Console.WriteLine("Next after Spring is " + Season.Spring.Next());
 
-Console.ReadKey();
-public enum Season
-{
-    Spring,
-    Summer,
-    Autumn,
-    Winter
-}
+//Console.ReadKey();
+//public enum Season
+//{
+//    Spring,
+//    Summer,
+//    Autumn,
+//    Winter
+//}
 
 //var cheddar = new Cheddar(2, 12);
 //var tomatoSauce = new TomatoSauce(1);
@@ -213,7 +213,30 @@ public enum Season
 //tomatoSauce.Prepare();
 
 
-//Console.ReadKey();
+Console.ReadKey();
+
+var bakeableDishes = new List<object>
+{
+    new Pizza(),
+    new Panettone()
+};
+
+foreach(var bakeableDish in bakeableDishes)
+{
+    Console.WriteLine(bakeableDish.GetInstructions());
+}
+public abstract class Dessert { }
+
+public abstract class Bakeable
+{
+    public abstract string GenInstructions();
+}
+
+
+public class Panettone : Dessert
+{ 
+}
+
 public class Pizza
 {
     //these will set to default value; 
