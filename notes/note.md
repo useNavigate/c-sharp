@@ -3026,34 +3026,35 @@ public abstract class Animal
   
   Example Code:
 ```csharp
-  using System;
-  using System.Text.Json;
+using System.Text.Json;
 
-  public class Person
-  {
-      public string FirstName { get; set; }
-      public string LastName { get; set; }
-      public int YearOfBirth { get; set; }
-  }
+// you need a constructor to instantiate like this. 
+//var person = new Person("Sara", "Ryu", 1993);
 
-  class Program
-  {
-      static void Main(string[] args)
-      {
-          Person person = new Person
-          {
-              FirstName = "John",
-              LastName = "Doe",
-              YearOfBirth = 1990
-          };
+//no constructor needed way. 
+var person = new Person { FirstName = "Sara", LastName = "Ryu", YearOfBirth = 1993 };
 
-          // Serialize to JSON
-          string json = JsonSerializer.Serialize(person);
-          Console.WriteLine(json);
+var asJson = JsonSerializer.Serialize(person);// returns object as JSON string 
+//{"FirstName":"Sara","LastName":"Ryu","YearOfBirth":1993}
 
-          // Deserialize from JSON
-          Person deserializedPerson = JsonSerializer.Deserialize<Person>(json);
-          Console.WriteLine($"Deserialized: {deserializedPerson.FirstName} {deserializedPerson.LastName} ({deserializedPerson.YearOfBirth})");
-      }
-  }
+
+Console.WriteLine("As Json: ");
+Console.WriteLine(asJson);
+
+var personJson = "{\"FirstName\":\"Sara\",\"LastName\":\"Ryu\",\"YearOfBirth\":1993}";
+var personFromJson = JsonSerializer.Deserialize<Person>(personJson);
+Console.ReadKey();
+public class Person {
+    //public Person(string firstName, string lastName, int yearOfBirth)
+    //{
+    //    FirstName = firstName;
+    //    LastName = lastName;
+    //    YearOfBirth = yearOfBirth;
+    //}
+
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public int YearOfBirth { get; set; }
+
+}
 ```
