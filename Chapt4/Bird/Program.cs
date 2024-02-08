@@ -11,6 +11,12 @@ public interface IFlyable
 {
     void Fly();
 }
+
+public interface IFuelable
+{
+    void Fuel();
+
+}
 public class Bird : IFlyable 
 {
     public void Tweet() =>
@@ -24,8 +30,11 @@ public class Bird : IFlyable
         public void Fly() => Console.WriteLine("Flying carried by the wind");
     }
 
-    public class Plane : IFlyable
+
+
+    public class Plane : IFlyable, IFuelable
     {
         public void Fly() => Console.WriteLine("Flying by technology");
+        public void Fuel() => Console.WriteLine("Filling tanks with jet fuel.");
     }
 }

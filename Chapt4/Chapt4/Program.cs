@@ -199,13 +199,7 @@ if (nullIsgredient is not null)
 //Console.WriteLine("Next after Spring is " + Season.Spring.Next());
 
 //Console.ReadKey();
-//public enum Season
-//{
-//    Spring,
-//    Summer,
-//    Autumn,
-//    Winter
-//}
+
 
 //var cheddar = new Cheddar(2, 12);
 //var tomatoSauce = new TomatoSauce(1);
@@ -213,9 +207,8 @@ if (nullIsgredient is not null)
 //tomatoSauce.Prepare();
 
 
-Console.ReadKey();
 
-var bakeableDishes = new List<object>
+var bakeableDishes = new List<IBakeable>
 {
     new Pizza(),
     new Panettone()
@@ -225,30 +218,36 @@ foreach(var bakeableDish in bakeableDishes)
 {
     Console.WriteLine(bakeableDish.GetInstructions());
 }
+
+
+Console.ReadKey();
 public abstract class Dessert { }
 
-public abstract class Bakeable
+public interface IBakeable
 {
-    public abstract string GenInstructions();
+    string GetInstructions();
 }
 
 
-public class Panettone : Dessert
-{ 
+public class Panettone : Dessert, IBakeable
+{
+    public string GetInstructions() => "Bake at 180 degree Celsius for 35 min";
 }
 
-public class Pizza
+public class Pizza:IBakeable
 {
     //these will set to default value; 
 
-    //public int number;
-    //public DateTime date;
+//public int number;
+//public DateTime date;
 
     public Ingredient ingredient;
 
     private List<Ingredient> _ingredients = new List<Ingredient>();
     public void AddIngredient(Ingredient ingredient) => _ingredients.Add(ingredient);
     public string Describe() => $"This is a pizza with {string.Join(", ", _ingredients)}";
+
+    public string GetInstructions() => "Bake at 250 degrees Celsius for 19 minutes";
 }
 
 
@@ -377,4 +376,11 @@ public sealed class Mozzarella : Cheese
         Console.WriteLine("Slice thinly and place on top of the pizza.");
 
     }
+}
+public enum Season
+{
+    Spring,
+    Summer,
+    Autumn,
+    Winter
 }

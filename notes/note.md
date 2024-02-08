@@ -2929,12 +2929,15 @@ class Program
 - Interfaces provide a way to achieve polymorphism and create loosely coupled systems.
 - They are commonly used to define common behavior across unrelated types.
 
-- inheritane creates an `is a` kind of relationship between types.
+- inheritance creates an `is a` kind of relationship between types.
 - interfaces create a `behaves-like` kind of relationship between types
 
 - you will get error if you try to => change the parameters or the return types. - inheritane creates an `is a` kind of relationship between types.
 - interface methods needs to be `public`
 - please be aware that the method defined in an interface are always `implicitly virtual`
+- interfaces cannot be instantiated.
+
+
 
 ```csharp
 using System;
@@ -2943,7 +2946,7 @@ using System.Collections.Generic;
 
 public interface IFlyable
 {
-    void Fly();
+    void Fly(); // all methods defined in an interface are implicitly virtual, adding virtual key word would not work here 
 }
 public class Bird : IFlyable 
 {
@@ -2966,7 +2969,9 @@ public class Bird : IFlyable
 ```
 
 ## Summary: Understanding the Differences Between Interfaces and Abstract Classes in C#
-
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
 - **Interface**:
   - Defines a contract specifying what set of operations will be provided by any class implementing it.
   - Contains method and property declarations but no implementations.
