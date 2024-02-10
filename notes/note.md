@@ -3058,3 +3058,210 @@ public class Person {
 
 }
 ```
+
+# Assignment : CookieCookBook
+- Designing a  good `interface` for a class is much `harder` but also much more `important` than making all the implementation details right. 
+
+## Summary: Dependency Inversion Principle and Dependency Injection
+
+- **Dependency Inversion Principle (DIP)**:
+  - High-level modules should not depend on low-level modules; both should depend on abstractions.
+  - Abstractions are usually represented by interfaces.
+  - DIP promotes loose coupling and high cohesion in software design.
+
+- **Coupling and Tight Coupling**:
+  - Coupling refers to the degree of interdependence between classes.
+  - Tight coupling leads to classes being closely connected, making them less reusable and more prone to errors.
+
+- **Dependency Injection (DI)**:
+  - Design pattern where dependencies are provided to a class rather than being created within it.
+  - Reduces coupling and enhances flexibility and testability of code.
+
+- **Target-typed New Expressions**:
+  - Feature in C# 9 that allows skipping type declaration in certain cases where it's already clear from context.
+  - Enhances code readability and reduces verbosity.
+
+- **Example**:
+  - Refactored a class to adhere to DIP by introducing interfaces for dependencies.
+  - Implemented dependency injection by passing dependencies via constructor.
+  - Achieved loose coupling between classes, allowing for easier maintenance and future changes.
+
+## Summary: Generic Types, IEnumerable Interface, and Code Refactoring
+
+### Generic Types and Methods
+- **Generic types and methods**:
+  - Parameterized by another type.
+  - Promote code reusability and type safety.
+```csharp
+// Generic method to swap two values of any type
+public void Swap<T>(ref T a, ref T b)
+{
+    T temp = a;
+    a = b;
+    b = temp;
+}
+
+// Usage example
+int num1 = 10;
+int num2 = 20;
+Swap(ref num1, ref num2);
+Console.WriteLine($"num1: {num1}, num2: {num2}"); // Output: num1: 20, num2: 10
+```
+
+### IEnumerable Interface
+- **IEnumerable Interface**:
+  - Represents a collection of objects.
+  - Defines a method `GetEnumerator()` for iterating over the collection.
+  - Does not include methods for modifying the collection, making it suitable for read-only collections.
+  - Used in `foreach` loops.
+  - `Generic` types and methods are parameterized by types.
+  - Any type that implements `IEnumerable<Type>`     </Type>`
+
+```csharp
+// Example class implementing IEnumerable interface
+public class MyCollection<T> : IEnumerable<T>
+{
+    private List<T> items = new List<T>();
+
+    public void Add(T item)
+    {
+        items.Add(item);
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        return items.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
+}
+
+// Usage example
+var collection = new MyCollection<int>();
+collection.Add(1);
+collection.Add(2);
+collection.Add(3);
+
+foreach (var item in collection)
+{
+    Console.WriteLine(item); // Output: 1, 2, 3
+}
+
+```
+
+### Code Refactoring
+- **Recipe and Ingredient Types**:
+  - Defined separate namespaces for `Recipe` and `Ingredient` types.
+  - Made `Ingredient` class abstract and implemented common properties.
+  - Utilized inheritance to reduce code repetition between related ingredient types.
+  - Refactored common preparation instructions to base class or shared methods.
+```csharp
+// Original Ingredient class
+public abstract class Ingredient
+{
+    public int ID { get; set; }
+    public string Name { get; set; }
+    public virtual string PreparationInstructions() => "Add to other ingredients";
+}
+
+// Refactored ingredient types
+public class Flour : Ingredient
+{
+    public override string PreparationInstructions() => base.PreparationInstructions() + " and mix well";
+}
+
+public class Butter : Ingredient
+{
+    public override string PreparationInstructions() => "Melt and mix thoroughly";
+}
+
+public class Cinnamon : Ingredient
+{
+    public override string PreparationInstructions() => base.PreparationInstructions() + " and sprinkle on top";
+}
+
+```
+
+### Namespace Organization
+- **Namespace Organization**:
+  - Moved each ingredient type to a separate file.
+  - Grouped ingredient files under the `Ingredients` folder and namespace.
+
+```csharp
+// Original namespace structure
+namespace CookieCookbook
+{
+    public class Recipe { }
+    public class Ingredient { }
+}
+
+// Refactored namespace structure
+namespace CookieCookbook.Recipes
+{
+    public class Recipe { }
+}
+
+namespace CookieCookbook.Recipes.Ingredients
+{
+    public abstract class Ingredient { }
+    public class Flour : Ingredient { }
+    public class Butter : Ingredient { }
+    public class Cinnamon : Ingredient { }
+}
+```
+
+
+### Visual Studio Features
+- **Visual Studio Features**:
+  - Utilized Visual Studio's file management features to organize files and namespaces efficiently.
+
+## Next Steps:
+- Further refinement of `Recipe` type.
+- Exploration of additional features and functionalities.
+
+## Summary 130: Exploring LINQ Library and Accessing Index in foreach Loop
+
+- **Implementation of `Run` method:**
+  - Added `Read` method to `RecipesRepository` interface to return a collection of recipes.
+  - Implemented dummy version of `Read` method to return 2 or 3 recipes.
+  - Created a parameter for file path in the `Run` method.
+  
+- **Implementation of `PrintExistingRecipes` method:**
+  - Made the parameter type `IEnumerable` to allow flexibility in the collection of recipes.
+  - Utilized LINQ library for counting the number of recipes in the collection using `Count` extension method.
+  - Demonstrated LINQ library's importance and its availability through global using directives.
+  - Utilized a foreach loop to iterate over the collection of recipes and print each one with its index.
+  - Highlighted the need to override the `ToString` method in the `Recipe` class for proper printing of recipes.
+  - Described the process of printing recipe details, including ingredient names and preparation instructions, using a loop and string manipulation.
+
+```csharp
+// Dummy implementation of RecipesRepository Read method
+public List<Recipe> Read()
+{
+    // Dummy implementation to return 2 or 3 recipes
+}
+
+// Implementation of PrintExistingRecipes method
+public void PrintExistingRecipes(IEnumerable<Recipe> recipes)
+{
+    if (recipes.Count() == 0)
+    {
+        Console.WriteLine("No recipes found.");
+    }
+    else
+    {
+        Console.WriteLine("Existing recipes are:");
+        int index = 1;
+        foreach (var recipe in recipes)
+        {
+            Console.WriteLine($"Recipe {index++}: {recipe}");
+            Console.WriteLine(); // Empty line for readability
+        }
+    }
+}
+
+
+```
