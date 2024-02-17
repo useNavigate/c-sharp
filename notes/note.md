@@ -3260,8 +3260,26 @@ public void PrintExistingRecipes(IEnumerable<Recipe> recipes)
             Console.WriteLine($"Recipe {index++}: {recipe}");
             Console.WriteLine(); // Empty line for readability
         }
+        return string.Join(Environment.newLine,steps);
     }
 }
 
 
 ```
+## Summary: Creating IngredientsRegister Class and Utilizing it in Application Workflow
+
+- **Creation of IngredientsRegister class:**
+  - Introduced IngredientsRegister class to store a collection of all ingredients and facilitate ingredient retrieval by ID.
+  - Deferred the decision on interface implementation to avoid breaking the Dependency Inversion Principle.
+
+- **Integration of IngredientsRegister in PromptToCreateRecipe method:**
+  - Utilized IngredientsRegister class to retrieve the collection of all ingredients.
+  - Added a property to IngredientsRegister class to provide access to the collection of ingredients.
+
+- **Implementation of ToString method in Ingredient class:**
+  - Overrode the ToString method in the Ingredient class to print ingredient ID and name.
+
+- **Testing and Error Resolution:**
+  - Encountered compilation error due to missing parameter in the constructor of RecipesConsoleUserInteraction class.
+  - Fixed the error by providing the necessary parameter and ensured the application runs smoothly.
+

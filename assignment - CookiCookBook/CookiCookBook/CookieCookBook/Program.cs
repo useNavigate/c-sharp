@@ -24,7 +24,7 @@ using CookieCookBookSolution.Recipes.Ingredeients;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Linq.Expressions;
 
-var cookiesRecipesApp = new CookiesRecipesApp( new RecipesReposiory(),new RecipeConsoleUserInteraction());
+var cookiesRecipesApp = new CookiesRecipesApp( new RecipesReposiory(),new RecipesConsoleUserInteraction(new IngredientsRegister()));
 cookiesRecipesApp.Run("recipes.txt");
 
 
@@ -52,7 +52,7 @@ public class CookiesRecipesApp
         _recipesUserInteraction.PrintingExistingRecipes(allRecipes);
 
         //3. prompting the user to create a recipe
-        //_recipesUserInteraction.PromptToCreateRecipe();
+        _recipesUserInteraction.PromptToCreateRecipe();
 
         ////4.prompting the user to create a recipe 
         //var ingredients = _recipesUserInteraction.ReadIngredientsFromUser();
@@ -84,10 +84,32 @@ public interface IRecipesUserInteraction
     void ShowMessage(string message);
     void Exit();
     void PrintingExistingRecipes(IEnumerable<Recipe> allRecipes);
+    void PromptToCreateRecipe();
 }
 
-public class RecipeConsoleUserInteraction : IRecipesUserInteraction
+public class IngredientsRegister
 {
+    public IEnumerable<Ingredient> All { get; } = new List<Ingredient>
+    {
+        new WheatFlour(),
+        new SpeltFlour(),
+        new Butter(),
+        new Chocolate(),
+        new Sugar(),
+        new Cardamom(),
+        new Cinnamon(),
+        new CocoaPowder(),
+    };
+}
+public class RecipesConsoleUserInteraction : IRecipesUserInteraction
+{
+    private readonly IngredientsRegister _ingredientsRegister;
+
+    public RecipesConsoleUserInteraction(
+        IngredientsRegister ingredientsRegister)
+    {
+        _ingredientsRegister = ingredientsRegister;
+    }
     public void ShowMessage(string message)
     {
         Console.WriteLine(message);
@@ -117,20 +139,16 @@ public class RecipeConsoleUserInteraction : IRecipesUserInteraction
         //the Count method is an extension method for the IEnumerable type.  As we learned before
         // it comes from the `LINQ` library living in the `System.Linq` namespace.
         // LINQ is a crucial c# library, allowing us to work with collections easily and effecctively. 
-        //if (allRecipes.Count() > 0)
-        //{
-        //    Console.WriteLine("Existing recipes are:" + Environment.NewLine);
 
-        //    for (int recipeIndex = 0; recipeIndex < allRecipes.Count(); ++recipeIndex)
-        //    {
-        //        Console.WriteLine($"****{recipeIndex + 1}****");
-        //        this doesnt work because idkwhy but error message says  Cannot apply indexing with[] to an expression of type 'IEnumerable<Recipe>'
+    }
 
-        //        Console.WriteLine(allRecipes[recipeIndex]);
-        //        Console.WriteLine();
-        //    }
-        //}
-
+    public void PromptToCreateRecipe()
+    {
+        Console.WriteLine("Create a new cookie recipe! " + "Available ingredients are :");
+        foreach (var ingredient in _ingredientsRegister.All)
+        {
+            Console.WriteLine(ingredient);
+        }
     }
 }
 

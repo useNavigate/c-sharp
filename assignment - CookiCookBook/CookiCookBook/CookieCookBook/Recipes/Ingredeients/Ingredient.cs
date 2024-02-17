@@ -8,5 +8,8 @@
         //this defines a getter-only property.
         public virtual string PreparationInstructions => "Add to other ingredients";
 
+        public override string ToString() => $"{Id}. {Name}";
+
+
     }
 }

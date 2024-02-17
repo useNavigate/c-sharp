@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppAcademy", "AppAcademy\AppAcademy.csproj", "{FBA2894D-1597-4C1F-96D6-3F5CABCD4646}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBA2894D-1597-4C1F-96D6-3F5CABCD4646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA2894D-1597-4C1F-96D6-3F5CABCD4646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA2894D-1597-4C1F-96D6-3F5CABCD4646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA2894D-1597-4C1F-96D6-3F5CABCD4646}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {460D3B52-3505-4D8D-8AA6-CDE5F003031B}
+	EndGlobalSection
+EndGlobal
