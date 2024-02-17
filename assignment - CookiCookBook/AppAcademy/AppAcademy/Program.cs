@@ -47,6 +47,8 @@ namespace HelloWorld
             Console.WriteLine(tooth);
             var x = 1;
             Console.WriteLine(++x);
+            float money = 0.0000008f;
+
             Console.ReadLine();
         }
     }
