@@ -3,21 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crashCourse", "crashCourse\crashCourse.csproj", "{5E69F27B-1931-4BEA-A51F-3E5A568FBF01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CC-oop", "crashCourse\CC-oop.csproj", "{5E69F27B-1931-4BEA-A51F-3E5A568FBF01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1-StructVSClass", "StructVSClass\1-StructVSClass.csproj", "{0920ABE4-498C-4E7D-AAF7-CE08A8AB49C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1-StructVSClass", "StructVSClass\1-StructVSClass.csproj", "{0920ABE4-498C-4E7D-AAF7-CE08A8AB49C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1-2Sealed", "Seal\1-2Sealed.csproj", "{24DA6AB3-5261-47D6-B0B2-82B4E528B683}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1-2Sealed", "Seal\1-2Sealed.csproj", "{24DA6AB3-5261-47D6-B0B2-82B4E528B683}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2-Private", "Private\2-Private.csproj", "{73FBD13D-5620-4438-8789-12B34CB79BF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2-Private", "Private\2-Private.csproj", "{73FBD13D-5620-4438-8789-12B34CB79BF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3-privatePublicProtected", "3-privatePublicProtected\3-privatePublicProtected.csproj", "{A1BDB4E2-DC7F-44A3-BB58-A84986BBA92F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3-privatePublicProtected", "3-privatePublicProtected\3-privatePublicProtected.csproj", "{A1BDB4E2-DC7F-44A3-BB58-A84986BBA92F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4-RefOut", "RefOut\4-RefOut.csproj", "{21D523A1-4F7D-45EA-AD68-8AA893C54966}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4-RefOut", "RefOut\4-RefOut.csproj", "{21D523A1-4F7D-45EA-AD68-8AA893C54966}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5-Constructor", "ConstructorAndStatic\5-Constructor.csproj", "{4D4EE13A-5309-4802-8B66-241FFDA9C289}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5-Constructor", "ConstructorAndStatic\5-Constructor.csproj", "{4D4EE13A-5309-4802-8B66-241FFDA9C289}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6-StaticVar", "Static\6-StaticVar.csproj", "{4A328315-B863-4CCF-B7F4-C32ABE915C36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6-StaticVar", "Static\6-StaticVar.csproj", "{4A328315-B863-4CCF-B7F4-C32ABE915C36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "playground", "playground\playground.csproj", "{98F4058D-D7E9-4A29-960C-D4022BDC5E92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{4A328315-B863-4CCF-B7F4-C32ABE915C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A328315-B863-4CCF-B7F4-C32ABE915C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A328315-B863-4CCF-B7F4-C32ABE915C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98F4058D-D7E9-4A29-960C-D4022BDC5E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F4058D-D7E9-4A29-960C-D4022BDC5E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98F4058D-D7E9-4A29-960C-D4022BDC5E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98F4058D-D7E9-4A29-960C-D4022BDC5E92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
