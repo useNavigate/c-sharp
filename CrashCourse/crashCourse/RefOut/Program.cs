@@ -89,10 +89,10 @@ class BadCraig
 
         int x1 = 0; //always set default value 
         insideOfFn(ref x1);
-        Console.WriteLine("insideOfFn(ref x1) : {0}", x1);
+        Console.WriteLine("insideOfFn(ref x1) : {0}", x1);//1000
 
         outsideOfFn(out x1);
-        Console.WriteLine("outsideOfFn(out x1) : {0}", x1);
+        Console.WriteLine("outsideOfFn(out x1) : {0}", x1);//-1000
 
 
         Console.ReadKey();
