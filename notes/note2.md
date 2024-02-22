@@ -682,3 +682,24 @@ namespace CrashCourse
     }
 }
 ```
+
+# DateTime /TimeSpan
+
+```csharp
+DateTime awesomeDate = new DateTime(1974, 12, 21);
+Console.WriteLine("Day of the week : {0}", awesomeDate.DayOfWeek);//Day of the week : Saturday
+
+//changing value 
+awesomeDate = awesomeDate.AddDays(1);
+awesomeDate = awesomeDate.AddMonths(1);
+awesomeDate = awesomeDate.AddYears(1);
+
+Console.WriteLine("New Date : {0}", awesomeDate.Date);//New Date : 1/22/1976 12:00:00 AM
+
+//time span 
+TimeSpan lunchTime = new TimeSpan(12, 30, 0);
+lunchTime = lunchTime.Subtract(new TimeSpan(0, 15, 0));
+Console.WriteLine("new Time :{0}", lunchTime.ToString());//new Time :12:15:00
+
+Console.ReadLine();
+``` 
