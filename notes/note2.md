@@ -683,7 +683,7 @@ namespace CrashCourse
 }
 ```
 
-# DateTime /TimeSpan
+# 9 DateTime /TimeSpan
 
 ```csharp
 DateTime awesomeDate = new DateTime(1974, 12, 21);
@@ -703,3 +703,66 @@ Console.WriteLine("new Time :{0}", lunchTime.ToString());//new Time :12:15:00
 
 Console.ReadLine();
 ``` 
+# 10 Enumerate Types 
+```csharp
+    public class Program
+    {
+
+        static void PaintCar(CarColor cc)
+        {
+            Console.WriteLine($"The car was painted {cc} with the code {(int)cc}");
+
+        }
+        enum CarColor : byte
+        { 
+            Orange=1,
+            Blue, 
+            Green, 
+            Red, 
+            Yellow 
+        }
+        static void Main(string[] args) {
+
+            CarColor car1 = CarColor.Blue;  
+            PaintCar(car1); //The car was painted Blue with the code 2 
+
+            Console.ReadLine();
+        }
+    }
+ ```
+ 
+ **Another example**
+ ```csharp
+ public enum Role
+{
+    Administrator,
+    Manager,
+    Employee,
+    Intern
+}
+
+public class Employee
+{
+    public string Name { get; set; }
+    public Role UserRole { get; set; }
+    
+    public Employee(string name, Role role)
+    {
+        Name = name;
+        UserRole = role;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Employee emp1 = new Employee("John Doe", Role.Manager);
+        Employee emp2 = new Employee("Jane Smith", Role.Employee);
+        
+        Console.WriteLine($"{emp1.Name} is a {emp1.UserRole}");
+        Console.WriteLine($"{emp2.Name} is an {emp2.UserRole}");
+    }
+}
+
+```

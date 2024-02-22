@@ -3,23 +3,24 @@ namespace CrashCourse
 {
     public class Program
     {
+
+        static void PaintCar(CarColor cc)
+        {
+            Console.WriteLine($"The car was painted {cc} with the code {(int)cc}");
+
+        }
+        enum CarColor : byte
+        { 
+            Orange=1,
+            Blue, 
+            Green, 
+            Red, 
+            Yellow 
+        }
         static void Main(string[] args) {
 
-            DateTime awesomeDate = new DateTime(1974, 12, 21);
-            Console.WriteLine("Day of the week : {0}", awesomeDate.DayOfWeek);
-
-            //changing value 
-            awesomeDate = awesomeDate.AddDays(1);
-            awesomeDate = awesomeDate.AddMonths(1);
-            awesomeDate = awesomeDate.AddYears(1);
-
-            Console.WriteLine("New Date : {0}", awesomeDate.Date);
-
-            //time span 
-            TimeSpan lunchTime = new TimeSpan(12, 30, 0);
-            lunchTime = lunchTime.Subtract(new TimeSpan(0, 15, 0));
-
-            Console.WriteLine("new Time :{0}", lunchTime.ToString());
+            CarColor car1 = CarColor.Blue;  
+            PaintCar(car1);
             Console.ReadLine();
         }
     }
