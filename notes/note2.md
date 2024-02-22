@@ -766,3 +766,29 @@ class Program
 }
 
 ```
+
+
+# 11 Struct
+- **Memory Allocation:**
+    - Struct variables store memory directly where they are declared (stack).
+    - Class variables store a reference to memory on the heap.
+- **Value Types vs. Reference Types:**
+    - Structs are value types, while classes are reference types.
+- **Initialization:**
+    - Structs initialize memory when they come into scope, but you can also use the new keyword.
+    - Classes initialize memory with null references until explicitly instantiated with new.
+- **Assignment and Passing into Functions:**
+    - Structs are copied when assigned or passed into functions, leading to separate memory locations.
+    - Classes are referenced, so modifying an object affects all references to it.
+- **Performance:**
+    - `Structs` can offer performance benefits due to contiguous memory allocation, especially with arrays.
+    - `Classes` may incur more overhead due to heap allocation and reference handling.
+- **Nullability:**
+    - Structs cannot be null, but you can create nullable structs with a ? suffix.
+- **Constructor Limitations:**
+    - Structs cannot have parameterless constructors because the system automatically initializes them.
+- **Inheritance and Interfaces:**
+    - Structs cannot inherit from other structs, but they can implement interfaces.
+- **Nested Definitions:**
+    - Structs cannot contain variables of the same type directly to avoid infinite recursion.
+
