@@ -647,6 +647,9 @@ namespace CrashCourse
              Passing by reference: Allows a method to modify the original variable directly rather than a copy.
              Performance considerations: Can improve performance by avoiding unnecessary copying of large data structures.
              Usage: Both caller and callee must use ref keyword; parameters must be initialized before passing.
+             
+             call by value : 값만 보내니 보낸값을 아무리 바꿔도 원본 값은 안 바뀐다.
+             call by reference : 원본 값의 주소를 보내니, 값을 바꾸면 원본도 바뀐다.
              */
             Swap(ref num3, ref num4);
             Console.WriteLine("After Swap num1 : {0},{1}", num3, num4); //20,10 its mutated 
