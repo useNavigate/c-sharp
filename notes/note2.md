@@ -1,7 +1,7 @@
 # Crash Course 
  **Link :** https://www.youtube.com/watch?v=M5ugY7fWydE&t=8959s
- 
- ### 1. Casting 
+ - skipped few fundamental such as var,primitive types,conditional and etc
+ # 1. Casting 
  ```csharp
  using System;
 
@@ -24,7 +24,7 @@ long longNum = intNum;
 
 ```
 
-### 2. Formatting
+# 2. Formatting
 ```cSharp
 //formatting 
 Console.WriteLine("Currency : {0:c}", 23.455);       //Currency : $23.45
@@ -33,7 +33,7 @@ Console.WriteLine("3 Decimals : {0:f3}", 23.45555); //3 Decimals: 23.456
 Console.WriteLine("commas : {0:n2}", 2300);        //commas: 2,300.0000 뒤에 영이 몇개 붙는지 
 ```
 
-### 3.string 
+# 3.string 
 ```csharp
 
 //string 
@@ -135,7 +135,7 @@ enter.");/*exactly how i type
 enter.*/
 
 ```
-### 4. Array 
+# 4. Array 
 ```csharp
 //Arrays 
 //Array only can store same type values that has been defined 
@@ -161,7 +161,7 @@ Console.WriteLine((int)randomArray[1] + x); //55
 Console.ReadKey();
 ```
 
-### MORE ARRAY loop and function 
+# MORE ARRAY loop and function 
 
 ```csharp
 using System;
@@ -337,7 +337,7 @@ namespace CrashCourse
 }
 ```
 
-### 5 Random 
+# 5 Random 
 ```csharp
 using System;
 using System.Diagnostics;
@@ -368,7 +368,7 @@ namespace CrashCourse
 }
 ```
 
-### 6 Exception Handling
+# 6 Exception Handling
 ```csharp
 using System;
 using System.Diagnostics;
@@ -418,4 +418,126 @@ namespace CrashCourse
         }
     }
 }
+```
+
+# 7 String Builder 
+> - every time you change a string what you are actually doing is creating a brand new string and this is very `inefficient` 
+> - `stringBuilder` however actually allow you to change the text directly in memory. 
+```csharp
+
+            StringBuilder ssb = new StringBuilder("Same");
+            StringBuilder ssb1 = new StringBuilder("Same");
+
+            Console.WriteLine(ssb.Equals(ssb1)); //True because it has same string 
+            Console.WriteLine(ssb == ssb1); //False because memory location are different. 
+
+
+
+
+            StringBuilder sb = new StringBuilder("Random text");
+            StringBuilder sb2 = new StringBuilder("More stuff that is very important",256);
+
+            Console.WriteLine("Capacity : {0}",sb2.Capacity); //256
+            Console.WriteLine("Capacity : {0}", sb.Capacity); //16
+            Console.WriteLine(sb2.Length); //33 thre are exactly 33 chars in sb2
+            sb2.AppendLine("\nMore important text"); // adding a line 
+
+            /*
+             StringBuilder automatically increases its capacity to accommodate 
+             larger strings when necessary. If the initial capacity provided is insufficient, 
+             StringBuilder dynamically reallocates memory to increase its capacity.
+             
+            
+             example code 👇
+             */
+
+            Console.WriteLine("---------------------------------");
+            StringBuilder sb3 = new StringBuilder("definately has more than 1 char", 1);
+
+            Console.WriteLine("Capacity : {0}", sb3.Capacity); //31
+            Console.WriteLine(sb3.Length); //31 sb3
+            sb3.AppendLine();//adding an empty line \n
+            sb3.AppendLine("Adding More Line "); // appendingn text
+            sb3.AppendLine("\nanother line with \\n ");
+            Console.WriteLine("Capacity : {0}", sb3.Capacity); //124
+
+            Console.WriteLine("sb3 : \n" + sb3);
+            /*  sb3:
+                definately has more than 1 char
+                Adding More Line
+
+                another line with \n
+             */
+
+
+            Console.WriteLine("-----------------| Culture specific format");
+            //culture specific format 
+            CultureInfo enUs = CultureInfo.CreateSpecificCulture("en-US");
+            string bestCust = "Bob Smith";
+            sb2.AppendFormat(enUs, "Best Customer : {0}", bestCust);
+            Console.WriteLine(sb2.ToString()); // same as  Console.WriteLine(sb2);
+            Console.WriteLine("==================================");
+
+
+            //replace
+            Console.WriteLine("-----------------| Replace");
+            sb2.Replace("text", "REPLACED");
+
+            Console.ForegroundColor= ConsoleColor.Green;
+            Console.WriteLine("after replace :" + sb2.ToString());
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine("~_~_~_~_~~_~_~_~~_~_~_~_~_");
+            sb2.Clear();//clearing
+            Console.WriteLine(sb2); //nothing. literally prints nothing
+            Console.WriteLine(sb2.Capacity); //256 capacity still remains the same. 
+           
+            
+            Console.WriteLine("-----------------| appending && inserting text");
+
+            //appending / inserting text
+            sb2.Append(" Random Text\n");
+            sb2.Insert(0, "that's great");//StringBuilder.Insert(idx,string value)
+                                          //now sb2 =>  that's great Random Text
+
+            //checking if those two stringbuilder are equal 
+            Console.WriteLine(sb.Equals(sb2)); //False 
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine(sb2); //that's great Random Text
+  
+
+            //Removing
+
+            sb2.Remove(0, 7);// removing "that's " 7 chars including space after s 
+            Console.WriteLine(sb2.ToString()); //great Random Text
+            Console.ForegroundColor = ConsoleColor.White;
+
+
+
+
+
+
+            Console.WriteLine("\n------------|  en-US");
+            // Format a number (currency) using enUs culture
+            double price = 1234.56;
+            string formattedPrice = price.ToString("C", enUs); // Formatted price: $1,234.56
+            Console.WriteLine("Formatted price: " + formattedPrice);
+
+            // Format a date using enUs culture
+            DateTime date = DateTime.Now;
+            string formattedDate = date.ToString("D", enUs); // Formatted date: Wednesday, February 21, 2024
+            Console.WriteLine("Formatted date: " + formattedDate);
+
+
+            Console.WriteLine();
+            Console.WriteLine("\n------------|  ko-KOR");//Formatted price: ?1,235
+            CultureInfo koKr = CultureInfo.CreateSpecificCulture("ko-KOR");//Formatted date: 2024? 2? 21? ???
+            double pr = 1234.56;
+            string fPrice = pr.ToString("C", koKr); // Currency format
+            Console.WriteLine("Formatted price: " + fPrice);
+
+            DateTime dt = DateTime.Now;
+            string fDate = dt.ToString("D", koKr); // Long date format
+            Console.WriteLine("Formatted date: " + fDate);
 ```
