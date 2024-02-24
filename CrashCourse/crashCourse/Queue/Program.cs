@@ -2,7 +2,7 @@
 using System.Dynamic;
 
 class Program
-{
+{       //first in first out 
      static void Main(string[] args)
     {
         Queue queue = new Queue();
