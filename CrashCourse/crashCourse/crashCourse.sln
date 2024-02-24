@@ -31,6 +31,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarriorsFightToTheDeath", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayList", "ArrayList\ArrayList.csproj", "{23595F3F-517F-429E-B4DA-1DDC77C73F97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictionary", "Dictionary\Dictionary.csproj", "{2A7F0284-6AE9-409E-91B8-419A386F5F5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queue", "Queue\Queue.csproj", "{ABE0A46D-C723-4260-8244-CB5C0EA159A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +97,14 @@ Global
 		{23595F3F-517F-429E-B4DA-1DDC77C73F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23595F3F-517F-429E-B4DA-1DDC77C73F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23595F3F-517F-429E-B4DA-1DDC77C73F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A7F0284-6AE9-409E-91B8-419A386F5F5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A7F0284-6AE9-409E-91B8-419A386F5F5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A7F0284-6AE9-409E-91B8-419A386F5F5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A7F0284-6AE9-409E-91B8-419A386F5F5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABE0A46D-C723-4260-8244-CB5C0EA159A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE0A46D-C723-4260-8244-CB5C0EA159A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE0A46D-C723-4260-8244-CB5C0EA159A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE0A46D-C723-4260-8244-CB5C0EA159A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
