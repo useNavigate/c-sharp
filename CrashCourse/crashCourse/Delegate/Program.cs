@@ -1,5 +1,5 @@
 ﻿
-
+//https://www.youtube.com/watch?v=M5ugY7fWydE&t=12648s
 namespace Delegate
 {
     public class Program
