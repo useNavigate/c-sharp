@@ -23,23 +23,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "playground", "playground\pl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP2-PM", "OOP2-PM\OOP2-PM.csproj", "{86920855-D7D7-4A8B-B88A-3674E3EB1FF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicle_Interface1", "Interface\Vehicle_Interface1.csproj", "{C22F61D3-D48F-414D-BC8C-E7D6B3CF3C81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicle_Interface1", "Interface\Vehicle_Interface1.csproj", "{C22F61D3-D48F-414D-BC8C-E7D6B3CF3C81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Electronic_Interface2", "Electronic_Interface2\Electronic_Interface2.csproj", "{BEAE2418-D880-4106-B6E5-A03343A905FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Electronic_Interface2", "Electronic_Interface2\Electronic_Interface2.csproj", "{BEAE2418-D880-4106-B6E5-A03343A905FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarriorsFightToTheDeath", "WarriorsFightToTheDeath\WarriorsFightToTheDeath.csproj", "{BC17EAB2-9F75-48E9-9370-31F8F26F1EB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarriorsFightToTheDeath", "WarriorsFightToTheDeath\WarriorsFightToTheDeath.csproj", "{BC17EAB2-9F75-48E9-9370-31F8F26F1EB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayList", "ArrayList\ArrayList.csproj", "{23595F3F-517F-429E-B4DA-1DDC77C73F97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayList", "ArrayList\ArrayList.csproj", "{23595F3F-517F-429E-B4DA-1DDC77C73F97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictionary", "Dictionary\Dictionary.csproj", "{2A7F0284-6AE9-409E-91B8-419A386F5F5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictionary", "Dictionary\Dictionary.csproj", "{2A7F0284-6AE9-409E-91B8-419A386F5F5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queue", "Queue\Queue.csproj", "{ABE0A46D-C723-4260-8244-CB5C0EA159A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Queue", "Queue\Queue.csproj", "{ABE0A46D-C723-4260-8244-CB5C0EA159A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack", "Stack\Stack.csproj", "{432D2888-F5E7-4352-8807-32CBCDF5A868}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stack", "Stack\Stack.csproj", "{432D2888-F5E7-4352-8807-32CBCDF5A868}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generic", "Generic\Generic.csproj", "{C3686B07-D9E8-4FB3-BD99-7DCB550F8CFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generic", "Generic\Generic.csproj", "{C3686B07-D9E8-4FB3-BD99-7DCB550F8CFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegate", "Delegate\Delegate.csproj", "{DDB2ECF9-3914-4C2C-9C8F-6B5009B2BBA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delegate", "Delegate\Delegate.csproj", "{DDB2ECF9-3914-4C2C-9C8F-6B5009B2BBA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IEnumerator", "IEnumerator\IEnumerator.csproj", "{95E89FF6-0743-4B3B-91F3-C84608EA2AD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,10 @@ Global
 		{DDB2ECF9-3914-4C2C-9C8F-6B5009B2BBA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDB2ECF9-3914-4C2C-9C8F-6B5009B2BBA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDB2ECF9-3914-4C2C-9C8F-6B5009B2BBA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E89FF6-0743-4B3B-91F3-C84608EA2AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E89FF6-0743-4B3B-91F3-C84608EA2AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E89FF6-0743-4B3B-91F3-C84608EA2AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E89FF6-0743-4B3B-91F3-C84608EA2AD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
