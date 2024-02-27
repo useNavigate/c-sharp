@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FI", "FI\FI.csproj", "{CEA8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryWriterAndReader", "BinaryWriterAndReader\BinaryWriterAndReader.csproj", "{67316EE2-199B-4B06-965D-17E6A7EF424D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization_Json", "Serialization_\Serialization_Json.csproj", "{31EFFA71-6053-48DC-A957-D6CF00717719}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{67316EE2-199B-4B06-965D-17E6A7EF424D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67316EE2-199B-4B06-965D-17E6A7EF424D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67316EE2-199B-4B06-965D-17E6A7EF424D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31EFFA71-6053-48DC-A957-D6CF00717719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31EFFA71-6053-48DC-A957-D6CF00717719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31EFFA71-6053-48DC-A957-D6CF00717719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31EFFA71-6053-48DC-A957-D6CF00717719}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
