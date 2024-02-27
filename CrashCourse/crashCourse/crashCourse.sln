@@ -41,7 +41,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generic", "Generic\Generic.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delegate", "Delegate\Delegate.csproj", "{DDB2ECF9-3914-4C2C-9C8F-6B5009B2BBA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IEnumerator", "IEnumerator\IEnumerator.csproj", "{95E89FF6-0743-4B3B-91F3-C84608EA2AD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IEnumerator", "IEnumerator\IEnumerator.csproj", "{95E89FF6-0743-4B3B-91F3-C84608EA2AD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq", "Linq\Linq.csproj", "{30E519AB-ADE2-4F50-83A0-66E2C63E1B19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +131,10 @@ Global
 		{95E89FF6-0743-4B3B-91F3-C84608EA2AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95E89FF6-0743-4B3B-91F3-C84608EA2AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95E89FF6-0743-4B3B-91F3-C84608EA2AD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30E519AB-ADE2-4F50-83A0-66E2C63E1B19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30E519AB-ADE2-4F50-83A0-66E2C63E1B19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30E519AB-ADE2-4F50-83A0-66E2C63E1B19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30E519AB-ADE2-4F50-83A0-66E2C63E1B19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
