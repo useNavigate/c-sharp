@@ -51,7 +51,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FI", "FI\FI.csproj", "{CEA8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryWriterAndReader", "BinaryWriterAndReader\BinaryWriterAndReader.csproj", "{67316EE2-199B-4B06-965D-17E6A7EF424D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization_Json", "Serialization_\Serialization_Json.csproj", "{31EFFA71-6053-48DC-A957-D6CF00717719}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "Serialization_\Serialization.csproj", "{31EFFA71-6053-48DC-A957-D6CF00717719}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlSerializer", "XmlSerializer\XmlSerializer.csproj", "{D9280BE4-B3FB-41D4-8EEA-4308C7D97AA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,6 +161,10 @@ Global
 		{31EFFA71-6053-48DC-A957-D6CF00717719}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31EFFA71-6053-48DC-A957-D6CF00717719}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31EFFA71-6053-48DC-A957-D6CF00717719}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9280BE4-B3FB-41D4-8EEA-4308C7D97AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9280BE4-B3FB-41D4-8EEA-4308C7D97AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9280BE4-B3FB-41D4-8EEA-4308C7D97AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9280BE4-B3FB-41D4-8EEA-4308C7D97AA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
