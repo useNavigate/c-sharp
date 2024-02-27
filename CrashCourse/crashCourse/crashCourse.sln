@@ -49,6 +49,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threadd", "Threadd\Threadd.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FI", "FI\FI.csproj", "{CEA85A5F-0EC6-4B62-96AE-130A0B3B0682}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryWriterAndReader", "BinaryWriterAndReader\BinaryWriterAndReader.csproj", "{67316EE2-199B-4B06-965D-17E6A7EF424D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,10 @@ Global
 		{CEA85A5F-0EC6-4B62-96AE-130A0B3B0682}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEA85A5F-0EC6-4B62-96AE-130A0B3B0682}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEA85A5F-0EC6-4B62-96AE-130A0B3B0682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67316EE2-199B-4B06-965D-17E6A7EF424D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67316EE2-199B-4B06-965D-17E6A7EF424D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67316EE2-199B-4B06-965D-17E6A7EF424D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67316EE2-199B-4B06-965D-17E6A7EF424D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

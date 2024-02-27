@@ -27,6 +27,7 @@ namespace fileSystem
 
 
             //------------------------------| Fle IO
+            Console.WriteLine("------------------------------| File IO\n");
             string[] customers = { "Bob Smith", "Sally Smth", "Robert Dith" };
             string textFilePath = @"C:\Users\UseNa\csharp_fi\testfile1.txt";
             File.WriteAllLines(textFilePath, customers);
@@ -49,7 +50,7 @@ namespace fileSystem
 
 
             //------------------------------| FleStreams
-            Console.WriteLine("--------------");
+            Console.WriteLine("------------------------------| FleStreams\n");
             string textFilePath2 = @"C:\Users\UseNa\csharp_fi\textfile2.txt";
             FileStream fs = File.Open(textFilePath2, FileMode.Create);
             string randString = "This is a random string";
@@ -64,13 +65,32 @@ namespace fileSystem
                 fileByteArray[i] = (byte)fs.ReadByte();
             }
 
-            Console.WriteLine("=========");
+           
             Console.WriteLine(Encoding.Default.GetString(fileByteArray));
             //if you look at GetString it only takes bytes array 
             fs.Close(); // close file stream whenever its finished. 
 
 
 
+
+            //------------------------------| Fle writers and stream reader 
+            Console.WriteLine("------------------------------| Fle writers and stream reade\n");
+            
+            string textFilePath3 = @"C:\Users\UseNa\csharp_fi\textfile3.txt";
+            StreamWriter sw = new StreamWriter(textFilePath3);
+            //NOT CONSOLE.WRITE LINE
+            sw.Write("This is a random ");
+            sw.WriteLine("sentence");
+            sw.WriteLine("This is another sentence");
+            sw.Close();
+
+            StreamReader sr = new StreamReader(textFilePath3);
+            Console.WriteLine("Peek: {0}",Convert.ToChar(sr.Peek()));
+
+            Console.WriteLine("1st string : {0}",sr.ReadLine());
+            Console.WriteLine("Everything Else: {0}",sr.ReadToEnd());
+            Console.WriteLine();
+            sr.Close();
 
             Console.ReadKey();
 
