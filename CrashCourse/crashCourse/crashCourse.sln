@@ -43,7 +43,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delegate", "Delegate\Delega
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IEnumerator", "IEnumerator\IEnumerator.csproj", "{95E89FF6-0743-4B3B-91F3-C84608EA2AD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq", "Linq\Linq.csproj", "{30E519AB-ADE2-4F50-83A0-66E2C63E1B19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq", "Linq\Linq.csproj", "{30E519AB-ADE2-4F50-83A0-66E2C63E1B19}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threadd", "Threadd\Threadd.csproj", "{3BCA15EE-1946-4ED8-822D-3E20439C5331}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FI", "FI\FI.csproj", "{CEA85A5F-0EC6-4B62-96AE-130A0B3B0682}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +139,14 @@ Global
 		{30E519AB-ADE2-4F50-83A0-66E2C63E1B19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30E519AB-ADE2-4F50-83A0-66E2C63E1B19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30E519AB-ADE2-4F50-83A0-66E2C63E1B19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BCA15EE-1946-4ED8-822D-3E20439C5331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BCA15EE-1946-4ED8-822D-3E20439C5331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BCA15EE-1946-4ED8-822D-3E20439C5331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BCA15EE-1946-4ED8-822D-3E20439C5331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEA85A5F-0EC6-4B62-96AE-130A0B3B0682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA85A5F-0EC6-4B62-96AE-130A0B3B0682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA85A5F-0EC6-4B62-96AE-130A0B3B0682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA85A5F-0EC6-4B62-96AE-130A0B3B0682}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

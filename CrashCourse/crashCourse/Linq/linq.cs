@@ -1,5 +1,4 @@
-﻿
-//using System.Xml.Linq;
+﻿//using System.Xml.Linq;
 using System.Collections;
 
 namespace Linqq
@@ -186,4 +185,3 @@ namespace Linqq
     }
 
 }
-
