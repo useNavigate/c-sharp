@@ -795,3 +795,15 @@ class Program
 - **Nested Definitions:**
     - Structs cannot contain variables of the same type directly to avoid infinite recursion.
 
+## DB 
+ 1. goto view 
+ 2. click server explorer 
+ 3. right click data
+ 4. click add connection 
+ 5. make sure to check the box where it says trust this person w.e
+ 6. file new project  => wpf app (.Net framework)
+ 7. click col or row, click properties at right side 
+ 8. click Identity Specification  and set `(Is Identity)`to true ( it prolly set to false )
+ 9. once you set to true, it should be  true 1 1 
+ 
+ 
