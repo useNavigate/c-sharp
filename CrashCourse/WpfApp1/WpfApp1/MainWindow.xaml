@@ -7,6 +7,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label Name="storeLabel" Content="Stores" HorizontalAlignment="Left" Margin="33,28,0,0" VerticalAlignment="Top"/>
+        <ListBox Name="storeList" SelectionChanged ="storeList_SelectionChanged"  d:ItemsSource="{d:SampleData ItemCount=5}" Margin="33,54,677,273"/>
+        <Label Name ="storeInvLabel" Content="Store Inventory" HorizontalAlignment="Left" Margin="159,28,0,0" VerticalAlignment="Top" Height="26"/>
+        <ListBox Name="storeInventory" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="159,54,551,273"/>
+        <Label Name="allProductsLabel" Content="All Products" HorizontalAlignment="Left" Margin="300,28,0,0" VerticalAlignment="Top" Height="26"/>
+        <ListBox Name="productList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="300,54,410,273"/>
+        <Button Content="Add Store" HorizontalAlignment="Left" Margin="33,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.494,0.56" Click="AddStoreClick" Width="90"/>
+        <Button Content="Delete Store" HorizontalAlignment="Left" Margin="33,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.494,0.56" Click="DeleteStoreClick" Width="90"/>
+        <Button Content="Add Inventory" HorizontalAlignment="Left" Margin="159,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.494,0.56" Click="AddInventoryClick" Width="90"/>
+        <Button Content="Delete Inventory" HorizontalAlignment="Left" Margin="159,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.494,0.56" Click="DeleteInventoryClick"/>
+        <Button Content="Add Product" HorizontalAlignment="Left" Margin="300,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.494,0.56" Click="AddProductClick" Width="90"/>
+        <Button Content="Delete Product" HorizontalAlignment="Left" Margin="300,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.494,0.56" Click="DeleteProductClick" Width="92"/>
+        <Label Content="Product Manufacturer" HorizontalAlignment="Left" Margin="15,256,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="165,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Product Brand" HorizontalAlignment="Left" Margin="15,298,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="165,302,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Store Name" HorizontalAlignment="Left" Margin="444,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.568"/>
+        <TextBox HorizontalAlignment="Left" Margin="452,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="231" Height="16"/>
+        <Label Content="Store Street" HorizontalAlignment="Left" Margin="444,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.568"/>
+        <TextBox HorizontalAlignment="Left" Margin="452,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="231" Height="16"/>
+        <Label Content="Store City" HorizontalAlignment="Left" Margin="444,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.568"/>
+        <TextBox HorizontalAlignment="Left" Margin="452,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="231" Height="16"/>
+        <Label Content="Store State" HorizontalAlignment="Left" Margin="444,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.524,0.568"/>
+        <TextBox HorizontalAlignment="Left" Margin="452,227,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="231" Height="16"/>
+        <Label Content="Store Zipcode" HorizontalAlignment="Left" Margin="444,263,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.568"/>
+        <TextBox HorizontalAlignment="Left" Margin="452,286,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="231" Height="16"/>
+
     </Grid>
 </Window>
