@@ -796,14 +796,47 @@ class Program
     - Structs cannot contain variables of the same type directly to avoid infinite recursion.
 
 ## DB 
- 1. goto view 
- 2. click server explorer 
- 3. right click data
- 4. click add connection 
- 5. make sure to check the box where it says trust this person w.e
- 6. file new project  => wpf app (.Net framework)
- 7. click col or row, click properties at right side 
- 8. click Identity Specification  and set `(Is Identity)`to true ( it prolly set to false )
- 9. once you set to true, it should be  true 1 1 
- 
- 
+1. click view / serer explorer in visual studio
+2. connect with db => by clicking on server explorer
+3. click our db 
+4. click table -> add new table 
+5. then sql table designer will pop up 
+
+6. inside of designer, 
+7. click row name of table such as ID 
+8. see property 
+4. set identity specification to true 
+5. set the data types and all once you are done click update 
+6. at the server explorer click refresh to see updated table 
+7. you will see the table we just created right click on the tale and click show tale data 
+8. they will be no data yet lol 
+9. fill datas
+10. click solution  explorer (right)  click WPFApp1 ( w.e the name of your current solutioin ) then goto data source  click add new data source 
+11. on the `choose your data connection` then yes include sensitive data in the connection string then check show the connection string that you will save in the application 
+12. click next then on the `save the connection string to the application configuration file `
+    - check `yes, save the connection as `
+    - copy the input from the textbox   //FIRSTPROJECTConnectionString
+
+
+
+13. goto Mainwindow.xaml.cs 
+
+```csharp
+        public MainWindow()
+        {
+            InitializeComponent();
+            string connectionString = ConfigurationManager.ConnectionStrings["WpfApp1.Properties.Settings.FIRSTPROJECTConnectionString"].ConnectionString;
+            //[NameOfProject.properties.Settings.txtFromInputBox]
+        }
+```
+as you see ConfigurationManager has squiggling lines we nee to fix it 
+- 14. on the solution  explorer panel right click on reference and click add reference 
+- 15. make sure assemblies are selected 
+- 16. check system.configuration 
+- 17. click okay
+- 18 import the System.Configuration library `using System.Configuration;`
+- 19 now the errors are gone. 
+
+- we are going add more tables now by serer explorer => click table = > add new table 
+    - this time we will type it out instead of using ui 
+    - a. 
